@@ -1,0 +1,390 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ew305}[USNA EW305 Linear Control Systems course materials style file]
+
+\RequirePackage{etoolbox}
+\newbool{usnahw}\newbool{usnaexam}\newbool{usnalab}\newbool{usnahandout}\newbool{usnaquiz}\newbool{usnaslides}
+\DeclareOption{hw}{\booltrue{usnahw}}
+\DeclareOption{quiz}{\booltrue{usnaquiz}}
+\DeclareOption{exam}{\booltrue{usnaexam}}
+\DeclareOption{lab}{\booltrue{usnalab}}
+\DeclareOption{handout}{\booltrue{usnahandout}}
+\DeclareOption{slides}{\booltrue{usnaslides}}
+\ExecuteOptions{}
+\ProcessOptions\relax
+
+
+
+
+
+% course information
+\newcommand{\usnaSchool}{United States Naval Academy}
+\newcommand{\usnaDepartment}{Department of Weapons, Robotics, and Control Engineering}
+\newcommand{\usnaCourseNumber}{EW305}
+\newcommand{\usnaCourseName}{Linear Control Systems}
+
+% instructor information
+\newcommand{\usnaInstructor}{Assistant Professor D.~Evangelista}
+\newcommand{\usnaInstructorShort}{D.~Evangelista}
+\newcommand{\usnaOffice}{Maury 207}
+\newcommand{\usnaExtension}{x3-6132}
+\newcommand{\usnaEmail}{\url{mailto:\\evangeli@usna.edu}}
+\newcommand{\usnaCourseSection}{3321}
+
+% EW305 convenience functions
+\newcommand{\Later}{\textbf{Later}}
+\newcommand{\Matlab}{Matlab}
+\newcommand{\MATLAB}{\Matlab}
+\newcommand{\Simulink}{Simulink}
+\newcommand{\SIMULINK}{\Simulink}
+\newcommand{\heaviside}{\mathbf{u}}
+
+% for course dates
+\RequirePackage{babel}
+\RequirePackage[american]{isodate}
+\dateinputformat{american}
+\newcommand{\usnaCourseTerm}{Fall 2019}
+\newcommand{\addDate}{9/3/2019}
+\newcommand{\dropDate}{11/8/2019}
+\newcommand{\firstFinal}{12/9/2019}
+\newcommand{\lastFinal}{12/18/2019}
+
+\newcommand{\examOne}{9/25/2019}
+\newcommand{\examTwo}{10/30/2019}
+\newcommand{\examThree}{11/20/2019} % ??? 
+\newcommand{\examFinal}{12/6/2019} % TBD
+
+\newcommand{\courseWeekOne}{8/19/2019}
+\newcommand{\courseWeekTwo}{8/26/2019}
+\newcommand{\courseWeekThree}{9/2/2019}
+\newcommand{\courseWeekFour}{9/9/2019}
+\newcommand{\courseWeekFive}{9/16/2019}
+\newcommand{\courseWeekSix}{9/23/2019}
+\newcommand{\courseWeekSeven}{9/30/2019}
+\newcommand{\courseWeekEight}{10/7/2019}
+\newcommand{\courseWeekNine}{10/14/2019}
+% spring break %\newcommand{\courseWeekTen}{3/11/2019}
+\newcommand{\courseWeekTen}{10/21/2019}
+\newcommand{\courseWeekEleven}{10/28/2019}
+\newcommand{\courseWeekTwelve}{11/4/2019}
+\newcommand{\courseWeekThirteen}{11/11/2019}
+\newcommand{\courseWeekFourteen}{11/18/2019}
+\newcommand{\courseWeekFifteen}{11/25/2019}
+\newcommand{\courseWeekSixteen}{12/2/2019}
+
+\newcommand{\hwZeroDue}{8/21/2019}
+\newcommand{\hwOneDue}{8/28/2019}
+\newcommand{\hwTwoDue}{9/4/2019}
+\newcommand{\hwThreeDue}{9/11/2019}
+\newcommand{\hwFourDue}{9/18/2019}
+% exam 1
+\newcommand{\hwFiveDue}{9/25/2019}
+\newcommand{\hwSixDue}{10/2/2019}
+\newcommand{\hwSevenDue}{10/16/2019}
+\newcommand{\hwEightDue}{10/23/2019}
+\newcommand{\hwNineDue}{10/30/2019}
+% exam 2
+\newcommand{\hwTenDue}{11/6/2019}
+\newcommand{\hwElevenDue}{11/13/2019}
+\newcommand{\hwElevenBDue}{11/20/2019}
+\newcommand{\hwTwelveDue}{11/27/2019}
+\newcommand{\hwThirteenDue}{0/0/0}
+\newcommand{\hwFourteenDue}{}
+\newcommand{\hwFifteenDue}{}
+
+\newcommand{\hwZeroOut}{8/19/2019}
+\newcommand{\hwOneOut}{8/21/2019}
+\newcommand{\hwTwoOut}{\hwOneDue}
+\newcommand{\hwThreeOut}{\hwTwoDue}
+\newcommand{\hwFourOut}{\hwThreeDue}
+\newcommand{\hwFiveOut}{\hwFourDue} % exam 1
+\newcommand{\hwSixOut}{\hwFiveDue}
+\newcommand{\hwSevenOut}{10/9/2019}
+\newcommand{\hwEightOut}{\hwSevenDue}
+\newcommand{\hwNineOut}{\hwEightDue}
+\newcommand{\hwTenOut}{\hwNineDue} % exam 2
+\newcommand{\hwElevenOut}{\hwTenDue}
+\newcommand{\hwElevenBOut}{11/18/2019}
+\newcommand{\hwTwelveOut}{\hwElevenDue}
+\newcommand{\hwThirteenOut}{\hwTwelveDue}
+\newcommand{\hwFourteenOut}{\hwThirteenDue}
+\newcommand{\hwFifteenOut}{}
+
+\newcommand{\labOneOut}{\courseWeekOne}
+\newcommand{\labNewTwoOut}{\courseWeekTwo}
+\newcommand{\labTwoOut}{\courseWeekThree}
+\newcommand{\labThreeOut}{\courseWeekFour}
+\newcommand{\labFourOut}{\courseWeekFive}
+\newcommand{\labFiveOut}{\courseWeekSix}
+\newcommand{\labFiveOneOut}{\courseWeekSix}
+\newcommand{\labFiveTwoThreeOut}{\courseWeekSeven}
+\newcommand{\labFiveRevOut}{\courseWeekNine}
+\newcommand{\labSixOut}{\courseWeekTen}
+\newcommand{\labSevenOneOut}{\courseWeekTwelve}
+\newcommand{\labSevenTwoOut}{\courseWeekThirteen}
+
+\newcommand{\labOneDue}{\courseWeekTwo}
+\newcommand{\labNewTwoDue}{\courseWeekThree}
+\newcommand{\labTwoDue}{\courseWeekFour}
+\newcommand{\labThreeDue}{\courseWeekFive}
+\newcommand{\labFourDue}{\courseWeekSix}
+\newcommand{\labFiveDue}{\courseWeekSeven}
+\newcommand{\labFiveOneDue}{\courseWeekSeven}
+\newcommand{\labFiveTwoThreeDue}{\courseWeekNine}
+\newcommand{\labFiveRevDue}{\courseWeekTen}
+\newcommand{\labSixDue}{\courseWeekThirteen}
+\newcommand{\labSevenOneDue}{\courseWeekSixteen}
+\newcommand{\labSevenTwoDue}{\courseWeekSixteen}
+
+\newcommand{\projectOut}{11/25/2019}
+\newcommand{\projectDue}{12/5/2019}
+
+\newcommand{\quizOne}{8/23/2019}
+\newcommand{\quizTwo}{9/6/2019}
+\newcommand{\quizThree}{10/18/2019}
+\newcommand{\quizFour}{}
+\newcommand{\quizFive}{}
+\newcommand{\quizSix}{}
+\newcommand{\quizSeven}{}
+\newcommand{\quizEight}{}
+\newcommand{\quizNine}{}
+\newcommand{\quizTen}{}
+\newcommand{\quizEleven}{}
+\newcommand{\quizTwelve}{}
+\newcommand{\quizThirteen}{}
+\newcommand{\quizFourteen}{}
+\newcommand{\quizFifteen}{}
+\newcommand{\quizSixteen}{}
+\newcommand{\quizSeventeen}{}
+
+
+
+
+
+
+
+
+% include information for course formatting
+\RequirePackage{amsmath,amsfonts,amssymb}
+\RequirePackage[makeroom]{cancel}
+\RequirePackage{graphicx}
+\RequirePackage{color}
+\@ifclassloaded{beamer}
+{}
+{\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{svg,svg-extract}} % conflicts with Tufte resolved
+\RequirePackage{booktabs}
+
+\RequirePackage{siunitx}
+\DeclareSIUnit\foot{ft}
+\DeclareSIUnit\pound{lb}
+\DeclareSIUnit\ounce{oz}
+\DeclareSIUnit\inch{in}
+\DeclareSIUnit\rpm{rpm}
+\DeclareSIUnit\fahrenheit{F}
+\DeclareSIUnit\bit{bit}
+\DeclareSIUnit\byte{B}
+
+% the following avoides a conflict with Tufte
+\@ifclassloaded{tufte-handout}%
+{}%
+{\@ifclassloaded{tufte-book}%
+{}%
+{\@ifclassloaded{beamer}% sidenotes appears to freak out beamer!
+{}%
+{\RequirePackage{sidenotes}}}}
+
+\RequirePackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=violet,
+  urlcolor=blue,
+  citecolor=blue}
+\RequirePackage[plain]{fancyref} 
+
+\RequirePackage{listings}
+\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	showstringspaces=false
+}
+\lstdefinestyle{mbedC}{
+	language=C,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{magenta}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+	directivestyle=\color{red}\ttfamily,
+ 	morecomment=[l][\color{red}]{\#},
+	columns=fullflexible,
+	showstringspaces=false,
+%	frame=single
+}
+\lstdefinestyle{usnaMatlab}{
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{magenta}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+ 	morecomment=[l][\color{red}]{\#},
+	columns=fullflexible,
+	showstringspaces=false,
+	language=Matlab
+%	%backgroundcolor=\color{lightgray},
+%	frame=single
+}
+
+% for citations and bibliographies
+\@ifpackageloaded{natbib}%
+{}% already loaded for Tufte
+{\RequirePackage[round,authoryear]{natbib}}% conflict with Tufte amicably resolved
+\bibliographystyle{plainnat}
+\RequirePackage{bibentry}
+
+
+
+
+
+%\RequirePackage{framed}
+\newcommand{\caution}[1]{
+%\begin{framed}
+\begin{quote}
+\begin{center}
+\textbf{CAUTION}
+\end{center}
+#1
+\end{quote}
+%\end{framed}
+}
+
+\newcommand{\warning}[1]{
+%\begin{framed}
+\begin{quote}
+\begin{center}
+\textbf{WARNING}
+\end{center}
+\textbf{#1}
+\end{quote}
+%\end{framed}
+}
+
+
+\ifbool{usnahw}{%
+\newcommand{\theduedate}{}
+\newcommand{\duedate}[1]{\renewcommand{\theduedate}{#1}}
+\renewcommand{\maketitle}{
+\makeatletter
+  \begin{center}
+    \noindent\usnaSchool\\
+    \usnaDepartment\\
+    \usnaCourseNumber\ \usnaCourseName\\
+  \end{center}
+  Issued: \@date\hfill Due: \theduedate\\
+  \hrule
+
+  \begin{center}
+  \ifprintanswers
+  \textbf{\@title\ (solutions)}
+  \else
+    \textbf{\@title}
+    \fi
+\end{center}
+\makeatother}}
+
+\ifbool{usnaquiz}{%
+\newcommand{\theduedate}{}
+\newcommand{\duedate}[1]{\renewcommand{\theduedate}{#1}}
+\renewcommand{\maketitle}{
+\makeatletter
+  \begin{center}
+    \noindent\usnaSchool\\
+    \usnaDepartment\\
+    \usnaCourseNumber\ \usnaCourseName\\
+  \end{center}
+  Issued: \@date\\
+  \hrule
+
+  \begin{center}
+  \ifprintanswers
+    \textbf{\@title\ (solutions)}
+    \else
+    \textbf{\@title}
+    \fi
+\end{center}
+\makeatother}}
+
+
+\ifbool{usnalab}{%
+\newcommand{\theduedate}{}
+\newcommand{\duedate}[1]{\renewcommand{\theduedate}{#1}}
+\renewcommand{\maketitle}{
+\makeatletter
+  \begin{center}
+    \noindent\usnaSchool\\
+    \usnaDepartment\\
+    \usnaCourseNumber\ \usnaCourseName\\
+  \end{center}
+  Issued: \@date\hfill Due: \theduedate\\
+  \hrule
+
+  \begin{center}
+  \ifprintanswers
+    \textbf{\@title\ (solutions)}
+    \else
+    \textbf{\@title}
+    \fi
+\end{center}
+\makeatother}}
+
+
+
+\ifbool{usnaexam}{%
+%\newcommand{\usnaExamName}{Quiz \#0}
+\renewcommand{\maketitle}{%
+\makeatletter
+  \pagestyle{headandfoot}
+  \firstpageheader{}{}{} % nothing on first page
+  \firstpagefooter{}{}{} % nothing on first page
+  \ifprintanswers
+  \runningheader{\usnaCourseNumber\ \usnaCourseTerm\ \@title\ SOLUTIONS}{}{\makebox[2in]{\hrulefill}} % for solutions
+  \else
+  \runningheader{\usnaCourseNumber\ \usnaCourseTerm\ \@title}{}{\makebox[2in]{\hrulefill}} % normal ones have space for MIDN to write name 
+  \fi
+  \runningfooter{}{Page \thepage\ of \numpages}{} % and give page numbers
+  %
+  % now the actual title page stuff
+  \begin{center}
+    \usnaSchool\\
+    \usnaDepartment\\
+    \usnaCourseNumber\ \usnaCourseName
+  \end{center}
+  Date: \@date\\
+  \hrule
+
+  \begin{center}
+    \textbf{\@title, \usnaCourseTerm}
+  \end{center}
+  \makeatother
+  }  
+\newcommand{\usnaExamNameBlock}{%
+\begin{table}[h]
+\begin{center}
+\setlength\extrarowheight{18pt}
+\begin{tabular}{p{1.5in}p{4in}}
+\hfill Name (print) & 
+\ifprintanswers
+\makebox[4in]{\hfill\textbf{SOLUTIONS}\hfill}
+\else
+\makebox[4in]{\hrulefill}
+\fi \\
+\hfill Section/Instructor & \makebox[4in]{\hrulefill} \\
+\hfill Signature & \makebox[4in]{\hrulefill} \\
+\end{tabular}
+\setlength\extrarowheight{0pt}
+\end{center}
+\end{table}
+} %usnaExamNameBlock
+}
+
+\ifbool{usnaslides}{% Slide specific stuff here? 
+}% usnaslides
+\endinput
+
