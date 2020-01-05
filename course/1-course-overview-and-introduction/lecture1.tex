@@ -1,0 +1,76 @@
+\documentclass{beamer}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{\usnaCourseNumber\ Guided Design Experience}
+\subtitle{Course introduction, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+
+\usepackage{media9}
+
+\begin{document}
+\frame{\titlepage}
+
+\frame{\frametitle{Topics}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Introductions
+\item Course overview
+\begin{itemize}
+\item Syllabus
+\item Course policy
+\end{itemize}
+\item Where does \usnaCourseNumber\ fit in?
+\item \GoogleClassroom\ setup
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=0.75\columnwidth]{\myroot/figures/nerf_rival_khaos.jpg}
+\begin{center}
+\end{center}
+\end{column}
+\end{columns}
+}
+
+\frame{\frametitle{Where does \usnaCourseNumber\ fit in?}
+}
+
+\frame{\frametitle{High speed action shot}
+\begin{center}
+\includemedia[
+	width=0.5\columnwidth,
+	activate=pageopen,
+	flashvars={
+	modestbranding=1 
+	&autohide=1 
+	&showinfo=0
+	&rel=0}]{video here}{https://www.youtube.com/watch?v=wQdRluHjWqI}
+\end{center}
+}
+
+\frame{\frametitle{\GoogleClassroom}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l1-f3.png}
+\end{center}
+}
+
+\frame{\frametitle{What do you need for this class?}
+\begin{itemize}
+\item mbed LPC1768
+\item Laptop with mouse and power cord
+\item Software requirements:
+\begin{itemize}
+\item \Matlab\ R2017b or later\footnote{Run \Matlab\ as administrator; type \lstinline{suppprtPackageinstaller}; find and install necessary toolbox/packages.}
+\begin{itemize}
+\item Image Processing Toolbox
+\item \Matlab\ support package for USB webcams
+\end{itemize}
+\item Tera Term
+\end{itemize}
+\end{itemize}
+}
+
+
+\end{document}

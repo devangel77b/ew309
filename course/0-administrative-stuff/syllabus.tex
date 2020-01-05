@@ -1,0 +1,166 @@
+\documentclass[10pt]{article}
+
+
+\usepackage{fullpage}
+
+\usepackage{termcal}
+\renewcommand{\calprintdate}{%
+\ifnewmonth 
+\framebox{\monthname\ \arabic{date}}%
+\else 
+\arabic{date}
+\fi}
+\renewcommand{\calprintclass}{}
+
+\newcommand{\myroot}{../..}
+\usepackage{\myroot/ew305}
+
+
+\begin{document}
+\begin{center}
+\textbf{\usnaCourseNumber\ \usnaCourseName, section \usnaCourseSections}\\
+\textbf{\usnaCourseTerm}\footnote{Syllabus version from \today}
+\end{center}
+
+\begin{calendar}{8/26/2019}{18}
+\setlength{\calboxdepth}{0.625in}
+\calday[\textup{M}]{\classday}
+\calday[\textup{T (lab)}]{\classday}
+\calday[\textup{W}]{\classday}
+\skipday%\calday[\textup{R (lab)}]{\classday}
+\calday[\textup{F}]{\classday}
+\skipday
+\skipday
+
+% holidays and time warps
+\caltext{9/2/2019}{\textbf{Labor Day}, no class}
+\caltext{9/3/2019}{\textbf{Monday schedule}}
+\caltext{10/14/2019}{\textbf{Columbus Day}, no class}
+\caltext{11/11/2019}{\textbf{Veteran's Day}, no class}
+\caltext{11/27/2019}{Friday early schedule}
+\caltext{11/28/2019}{\textbf{Thanksgiving}, no class}
+\caltext{11/28/2019}{\textbf{Thanksgiving Break}, no class}
+\caltext{12/5/2019}{\textbf{End of term}}
+\caltext{12/6/2019}{\textbf{Review \& Study Day}}
+
+
+% academic dates
+\caltext{\addDate}{\textbf{Add Date}}
+\caltext{\dropDate}{Drop Date}
+\caltext{\firstFinal}{\textbf{First day of finals}\footnote{Final exam date TBD.}}
+\caltext{\lastFinal}{\textbf{Last day of finals}}
+
+% exams
+\caltext{\examOne}{\textbf{Exam 1}}
+\caltext{\examTwo}{\textbf{Exam 2}}
+\caltext{\examThree}{\textbf{Exam 3}}
+%\caltext{\examFinal}{\textbf{Final Exam\footnote{The \usnaCourseNumber\ final is on x May 2018 at xxxx, Maury 1st deck. Rooms are by section, TBA.}}}
+
+
+
+
+
+
+% lab
+\caltext{\labOneOut}{Lab 1}
+\caltext{\labOneTwoOut}{Lab 1.2}
+\caltext{\labTwoOut}{Lab 2}
+\caltext{\labThreeOut}{Lab 3}
+\caltext{\labFourOut}{Lab 4}
+\caltext{\labFiveOneOut}{Lab 5.1}
+\caltext{\labFiveTwoThreeOut}{Lab 5.2--5.3}
+\caltext{\labFiveRevOut}{Lab 5R}
+\caltext{\labSixOut}{Lab 6}
+\caltext{\labSevenOneOut}{Lab 7.1}
+\caltext{\labSevenTwoOut}{Lab 1.2}
+
+% projects
+\caltext{\projectOut}{Project out}
+\caltext{\projectDue}{Project due}
+
+% homework
+\caltext{\hwZeroDue}{}
+\caltext{\hwOneDue}{HW1 due\footnote{Homework due dates may shift.}}
+\caltext{\hwTwoDue}{HW2 due}
+\caltext{\hwThreeDue}{HW3 due}
+\caltext{\hwFourDue}{HW4 due}
+\caltext{\hwFiveDue}{HW5 due}
+\caltext{\hwSixDue}{HW6 due}
+\caltext{\hwSevenDue}{HW7 due}
+\caltext{\hwEightDue}{HW8 due}
+\caltext{\hwNineDue}{HW9 due}
+\caltext{\hwTenDue}{HW10 due}
+\caltext{\hwElevenDue}{HW11 due}
+\caltext{\hwElevenBDue}{HW11b due}
+
+
+% lecture topics weekly
+%\caltexton{1}{}
+%\caltextnext{Course introduction and control systems overview}
+%\caltextnext{Programming and microcontroller review}
+%\caltextnext{}
+%
+%\caltexton{5}{}
+%\caltextnext{}
+%\caltextnext{\Matlab\ review}
+%\caltextnext{}
+%
+%\caltexton{9}{Serial communications}
+%\caltextnext{}
+%\caltextnext{I$^2$C communication protocol}
+%\caltextnext{}
+%
+%\caltexton{13}{Functional block diagrams and control approaches}
+%\caltextnext{}
+%\caltextnext{Actuators}
+%\caltextnext{}
+%
+%\caltexton{17}{Simple mechanisms \& gears}
+%\caltextnext{}
+%\caltextnext{In-class exercise on gears and servos}
+%\caltextnext{}
+%
+%\caltexton{21}{Exam review}
+%\caltextnext{}
+%\caltextnext{}
+%\caltextnext{}
+%
+%\caltexton{25}{}
+%\caltextnext{}
+%\caltextnext{Electrical components}
+%\caltextnext{}
+%
+%\caltexton{29}{Circuits, resistors, and potentiometers}
+%\caltextnext{}
+%\caltextnext{Voltage dividers, inductors, and capacitors}
+%\caltextnext{}
+%
+%\caltexton{33}{Intro to mesaurement systems, op-amps}
+%\caltextnext{}
+%\caltextnext{Operational amplifiers}
+%\caltextnext{}
+%
+%\caltexton{41}{Sensor accuracy 1}
+%\caltextnext{}
+%\caltextnext{Sensor accuracy 2}
+%\caltextnext{}
+%
+%
+%\caltexton{45}{Resistive sensors 1}
+%\caltextnext{}
+%\caltextnext{Resistive sensors 2}
+%\caltextnext{}
+%
+%\caltexton{49}{Exam review}
+%\caltextnext{}
+%\caltextnext{}
+%\caltextnext{}
+%
+%\caltexton{53}{Capacitive sensors}
+%\caltextnext{}
+%\caltextnext{Inductive sensors}
+
+
+
+\end{calendar}
+\end{document}
