@@ -1,0 +1,36 @@
+//declare the following variables for the derivative filter
+
+int idx = 0; // counter for figuring out when you reach 20 values of velocity
+float e_dot_arr[20]; //stores 20 values of the error derivative
+float e_dot; //this is your error derivative
+int first = 0;
+
+//in your ticker function  you need the following line of code
+
+omega     = (err-old_err)/0.01; //this is change in error over change in time
+
+//Velocity filter for derivative term
+    if(idx <= 19) {
+        e_dot_arr[idx] = omega; //keep storing values in your array
+        idx = idx+1;
+    } else {
+        idx = 0; //start over with the first entry (rewrite old ones)
+        e_dot_arr[idx] = omega;
+    }
+    if (first == 0) {
+
+    if (idx >= 1) {
+        e_dot = 0.0; //this checks to see if it's the first time the array is populated
+        for (j=0; j<=idx; j++) {
+            e_dot = e_dot + e_dot_arr[j];
+        }
+            e_dot = e_dot/idx;}
+    else
+      e_dot = e_dot_arr[idx];}
+      else
+      first = 1;  //set the value to first to 1 so that it starts to just overwrite old values in the array
+      for (j=0; j<=19; j++) {
+            e_dot = e_dot + e_dot_arr[j];
+        }
+        e_dot = e_dot/idx;
+   e_dot = 0.0 - e_dot;  
