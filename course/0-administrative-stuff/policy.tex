@@ -4,12 +4,14 @@
 %\usepackage{\myroot/ew305}
 %incompatible for some reason?
 
-\newcommand{\usnaCourseNumber}{EW305}
-\newcommand{\usnaCourseName}{Linear Control Systems}
+\newcommand{\usnaCourseNumber}{EW309}
+\newcommand{\usnaCourseName}{Guided Design Experience}
 \newcommand{\usnaInstructor}{Assistant Professor D Evangelista}
 \newcommand{\usnaInstructorShort}{D Evangelista}
-\newcommand{\usnaCourseSection}{3321}
-\newcommand{\usnaCourseTerm}{Fall 2019}
+\newcommand{\usnaCourseSection}{0111 0311}
+\newcommand{\usnaCourseTerm}{Spring 2020}
+\newcommand{\Google}{Google}
+\newcommand{\GoogleClassroom}{Google Classroom}
 
 \author{\usnaInstructorShort}
 \title{\usnaCourseNumber\ Course Policy}
@@ -41,83 +43,102 @@
 \navysubjline{}
 \navyskip{}%
 \navyref{refa}{ACDEANINST 1531.58 (Administration of Academic Programs)}
-\navyref{refb}{WEAPS\&SYSENGRINST 5400.16 (Teaching Methods \& Practices)}
-\navyref{refc}{USNAINST 1531.53B (Policies Concerning Graded Academic Work)}
-\navyref{refd}{SECNAVINSTA M-5216.5 (Department of Navy Correspondence Manual)}
-\navyref{refe}{USNAINST 1610.3J (Birgade Honor Program)}
-\navyref{reff}{COMDTMIDNINST 1752.1E (Sexual Assault Prevention and Response Program)}
+\navyref{refb}{USNAINST 1531.53B (Policies Concerning Graded Academic Work)}
+\navyref{refc}{USNAINST 1610.3H (Birgade Honor Program)}
+\navyref{refd}{COMDTMIDNINST 1752.1E (Sexual Assault Prevention and Response Program)}
 %\navyskip{}%
 \navyencl{encl1}{Syllabus, \usnaCourseNumber\ (\usnaCourseName), \usnaCourseTerm}
 \end{navyletterheader}
 
-\section{}
-References (\ref{refa}) through (\ref{reff}) set forth my course policy for the \usnaCourseTerm\ session of \usnaCourseNumber\ (\usnaCourseName).  This information supplements the basic guidance provided in references~(\ref{refa}) through (\ref{reff}).
+\section{} Per reference~\ref{refa}, this memorandum sets forth my course policy for the \usnaCourseTerm\ session of \usnaCourseNumber\ (\usnaCourseName). This information supplements the basic guidance provided in references~\ref{refa} through \ref{refd} and enclosure~\ref{encl1}.
+ 
+\section{Course objectives} At the end of the course, a student should be able to:
+\begin{itemize}
+\setlength\itemsep{0em}
+\item Develop and execute a formal test plan to acquire experimental data.
+\item Apply appropriate analysis techniques for interpretation of measured data.
+\item Perform appropriate research on components to span a design space.
+\item Make informed decisions for parts selection.
+\item Analyze and design a control system to meet the needs of a project.
+\item Apply basic computer vision methods through MATLAB.
+\end{itemize}
+ 
+Additionally, the course is intended to:
+\begin{itemize}
+\item Foster a preliminary understanding of and appreciation for the engineering design process.
+\item Provide a framework for exercise and integration of the components of the robotics and control engineering curriculum into a complete project.
+\item Enhance hands-on skills.
+\end{itemize}
+ 
+\section{Textbook} There is no textbook for this course.
+ 
+\section{Grading policy} The interim and final course grades will be based on the following approximate grade weights:
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+Individual assessment (individual assignments, quizzes) & 20\% \\\hline
+Interim project deliverables (lab assignments done as a team) & 30\% \\ \hline
+Final project demonstration & 20\% \\ \hline
+Final design report & 20\% \\ \hline
+Professionalism (class participation, lab/workspace neatness) & 10\% \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\section{Course Objectives and Learning Outcomes}  \usnaCourseNumber\ is an introduction to classical control systems, which comprises the mathematical modeling, time and frequency response analysos, and design of PID compensators.  Major topics include modeling physical systems with equations of motion, analysis of first and second order systems, root locus, and compensator and gain design. Material is supported by a series of laboratory projects that incorporate classroom concepts to design and implement control algorithms on physical systems. At the completion of this course, students must be able to:
-\subsection{} Apply linear control design to meet system performance specifications
-\subsection{} Understand the limits of linear control system performance
-\subsection{} Implement continuous-time control design on a digital microcontroller (Tustin’s transform)
-\subsection{} Understand a root locus plot for control design 
-\subsection{} Understand the type number of a linear system and its relation to steady-state error
-\subsection{} Analyze the response of a linear system to a step input
-\subsection{} Identify interconnected subsystems (transfer functions) using a block diagram
-\subsection{} Classify the mathematical model of a mechanical, electrical, or electro-mechanical system from its experimental response
-\subsection{} Understand the process of parameter estimation for linear systems (first and second order)
-\subsection{} Apply the Laplace Transform to represent linear differential equations in the frequency domain
-%\subsection{} Model, identify, and verify a mathematical model of simple mechanical,electrical, and electromechanical systems.
-%\subsection{} Analyze and predict the response of a linear system to a step input.
-%\subsection{} Design and implement a linear control system to meet given specifications on the step response. 
+\section{Assignments} Lab assignments will be in groups of two (typically) or three (rarely). Reports will follow the standard department template, to be provided. Late lab reports will face a penalty of 10\% per day unless otherwise coordinated with the instructor. All sources of information and any collaboration must be fully documented.
+ 
+Individual assignments are to be completed without collaboration between midshipmen unless otherwise stated. All sources of information must be fully documented. Late individual assignments accrue a 10\% penalty per day unless otherwise coordinated with the instructor.
+ 
+Putzier rule: you must get a passing grade on the final project demonstration and design report in order to pass the class.
 
-\section{Required Textbook} Nise, N. S., (2015). \emph{Control Systems Engineering.} 7th ed. Wiley \& Sons.  Students are expected to complete reading assignments prior to class and to bring the text to class.
+See reference~\ref{refc} for more information on the standards of academic rigor that will be universally applied to work in this class.
+ 
+\section{Classroom and laboratory hardware.}
+You must abide by all posted instructions in regards to hardware used in class and in laboratories. Disobeying posted instructions or those given in laboratory assignments, tampering with hardware used by other groups and/or moving hardware assigned to specific stations is forbidden and will result in a reduction of grade for your group on the assignment. You will be assigned a lock and a locker. You may not replace the lock with your own, and you must not block the view of the contents of your locker. Every instructor has the master list of combinations and a master key.
+ 
+\section{Classroom work and assigned reading}
+I will assume that you are prepared for class. In this regard, I expect any assigned reading, as delineated in class, to be completed prior to the appropriate class session. You are responsible for all text and other handout material.
+ 
+\section{Classroom attendance}
+Class attendance is a prerequisite to success. If you anticipate an excused absence, let me know in advance. Your responsibility is to turn in any course work when due and to obtain notes and announcements from another class member for classes you have missed.
+ 
+\section{Classroom work and decorum}
+\begin{itemize}
+\item Sleeping during class is unacceptable and will result in significant grade reduction, especially if chronic.
+\item Treat everyone in the class with dignity and respect. Respect the viewpoints of your peers and do not disparage their efforts, but rather offer constructive criticism where appropriate and in a professional manner.
+\item PLEASE KEEP YOUR WORKSPACE TIDY. Please dispose of your trash.
+\item Please store your backpacks outside on hooks or against the wall. This will help open up space between desks and prevent others (including myself) from tripping over them.
+\item Per reference~\ref{refd}, an important aspect in the implementation of the Naval Academy’s mission is to develop selfless leaders who value diversity and create an ethical command climate through their example of personal integrity and moral courage. If this attribute remains a common goal for each Midshipman, faculty and staff, all members of the team will be treated with dignity and respect. Additionally, the Brigade and classroom climate will not tolerate violence against others, reducing the potential risk of sexual assault.
+\end{itemize}
 
-\section{Expectations}
-\subsection{} Per USNA policy, eating and sleeping are prohibited during class. Use of phones and internet unrelated to class is also prohibited.  Drinks are permitted in closed containers.  Unless otherwise instructed, laptops will remain closed during lectures.  Professionalism befitting MIdshipmen of the United States Naval Academy is expected at all times. 
-\subsection{Collaboration} Your shipmates are a valuable resource for understanding difficult concepts. Midshipmen are encouraged to work together on homework, as long as submitted work is completed individually. Use of outside sources/peers should be cited. Collaboration on quizzes or exams is strictly prohibited. \textbf{Plagiarism will be defined as any work, to include computer code, that is represented in any manner as your own original and unique work.}
-\subsection{Late work} \textbf{Assignments are due by 2359 hours} on the date noted on the assignment.  Work turned in after the due date is subject to a 10\% penalty each day it is late. Assignments will not be accepted after solutions have been posted. Hardcopy is preferred.  
-\subsection{Absences} If you will be absent for any reason, it is your responsibility to notify the instructor in advance and to obtain any class notes and assignments. It is your responsibility to submit assignments on time, even if you are absent. 
+\section{Absent/late instructor}
+In the event that the course instructor is more than ten minutes late for class, the section leader will report to the department office (Maury 306) for further instruction. If there is no packet, and no further instructions are available from the department educational technician, the remainder of the class should be used to work on the assigned project or homework assignment.  Class is not canceled.
+ 
+\section{Formats/signatures}
+Most of the work in EW309 should be electronically generated. Work should be submitted as directed.. All work must be neat,  and legible. If you do not put your name on the submission, you will not receive credit for the work; just putting it in your \Google\ drive folder or \GoogleClassroom\ is not enough).
+ 
+\section{Communication/extra instruction (EI)} Any time you are having difficulty with the course material, I encourage you to seek EI. Extra instruction for this course is best scheduled by appointment so we can work together in the lab on anything you are struggling with. My primary means of communication with you outside the classroom will be via email -- so check it frequently.
 
-\section{Grading} The overall course grade will be approximately determined as listed. In addition to these criteria, preparation, participation, alertness class, and instructor's judgement of your progress throughout the course will be considered. \textbf{You must earn a passing grade in each grading area to earn a passing grade in this course.}
-\subsection{} Homework assignments: 5\%
-\subsection{} Hour exams (3): 10\% each
-\subsection{} Lab assignments: 20\%
-\subsection{} Lab quizzes and participation: 5\%
-\subsection{} Final exam: 25\%
-\subsection{} Final design project: 10\%
-
-\section{Course Materials} Whenever possible, course materials will be posted on a shared Google drive. 
-
-\section{Section Leader} The section leader will call the class to attention at the start and end of each class. If I have not arrived ten minutes after the start of class, the section leader should report to my office, then to the department office for instructions. If there are no instructions, the remaining class time should be used for work and study. 
-
-\section{Coursework}
-\subsection{} This class covers a large amount of material. Therefore, lectures and lab may not cover all the material covered on exams. Every effort will be made to discuss and identify the most important material.
-\subsection{} The design project will evaluate your understanding of course material, and will be completed over several weeks.
-\subsection{} All submitted work should be clear, concise, and of engineering quality. Submitted work should include:
-\begin{enumerate}
-\item Concise, clear description of the problem and steps taken toward your solution
-\item Appropriate use of symbolic and/or numeric equations and solutions
-\item Boxed or clearly indicated solution
-\item You may use an FE-permitted calculator and notes/references as permitted. Calculators may not be shared during exams or quizzes. Smartphones may not be used in lieu of or in addition to calculators.  
-\item Provide sufficient documentation to validate your results; this includes Simulink models, source code, input and parameter data, and results.
-\item All plots must provide properly labeled axes, units, and should include a descriptive caption.  
-\end{enumerate}
+\section{\GoogleClassroom\ Folder}
+I will create a \GoogleClassroom\ for this course.  Since \GoogleClassroom\ creates a separate profile for each student, for those assignments that require working together as a team, I will create shared assignments.  This should allow for collaboration when it is allowed and for individual work when it is not.   Each group will be required to submit their individual or group assignments using \GoogleClassroom\ by the due date.  One the due date has passed, you are not allowed to make any changes to your assignments until you have received a grade or the instructor has given you permission to make changes.  For those of you who haven’t used \GoogleClassroom\ before, I will spend some time in the first week going over it so you can become familiar with how it works.
 
 \clearpage
-\section{Office Hours and Extra Instruction (EI)} Midshipmen are encouraged to arrange EI as needed (appointments encouraged). I am teaching EW485 (Comparative Biomechanics) MWF2, EW305 MWF3; EW305 lab T3-4; and EW281C (School of Drones) T5-6. Thursday is typically used for research but is available by appointment. There may be a Labrador retriever guide dog puppy in training at my office; if this is an issue for you I can make alternate arrangements. 
+\section{Office Hours and Extra Instruction (EI)} Midshipmen are encouraged to arrange EI as needed (appointments encouraged). I am teaching EW309 (Guided Design Experience) MWF1-4; EW282C (School of Drones) R5-6; and EW282D (Biomechanics Lab) F3-4. Tuesday is typically used for research but is available by appointment. There may be a Labrador retriever guide dog puppy in training at my office; if this is an issue for you I can make alternate arrangements. 
 \begin{table}[h]
 \begin{center}
 \begin{tabular}[h]{| c | c | c | c | c | c | c |}
 \hline
 \bf Period & \bf I & \bf II & \bf III & \bf IV & \bf V & \bf VI\\
-\hhline{~|*6-}
-MON. & & \cellcolor{green}EW485E & \cellcolor{green}EW305-3433 & & &\\
-\hhline{~|*6-}
-TUE. & & & \multicolumn{2}{c}{\cellcolor{orange}\parbox[t]{3cm}{EW305 lab}} & \multicolumn{2}{c}{\cellcolor{orange}\parbox[t]{3cm}{EW281C}} \\
-\hhline{~|*6-}
-WED. & & \cellcolor{green}EW485E & \cellcolor{green}EW305-3433 & & &\\
-\hhline{~|*6-}
-THU. & \multicolumn{6}{c}{\cellcolor{yellow}Research / by appointment only}\\
-\hhline{~|*6-}
-FRI. & & \cellcolor{green}EW485E & \cellcolor{green}EW305-3433 & & &\\
+\hline
+MON & \multicolumn{2}{c|}{\cellcolor{orange}EW309 lab} & \multicolumn{2}{c|}{\cellcolor{orange}EW309 lab} & &\\
+\hline
+TUE & \multicolumn{6}{c|}{\cellcolor{yellow}Research / by appointment only}\\
+\hline
+WED & \multicolumn{2}{c|}{\cellcolor{orange}EW309 lab} & \multicolumn{2}{c|}{\cellcolor{orange}EW309 lab} & &\\
+\hline
+THU & & & & \multicolumn{2}{c|}{\cellcolor{orange}EW282C lab} & \\
+\hline
+FRI & & \multicolumn{2}{c|}{\cellcolor{orange}EW282D lab} & & & \\
 \hline
 \end{tabular}
 \end{center}
@@ -133,6 +154,12 @@ FRI. & & \cellcolor{green}EW485E & \cellcolor{green}EW305-3433 & & &\\
 \hspace*{4in}{(410) 293-6132}\\
 \hspace*{4in}{\href{mailto:evangeli@usna.edu}{evangeli@usna.edu}}
 
+%CAPT T. A. Severson
+%
+%Office 	MU208, (410) 293-6111
+%Email:	severson@usna.edu
+
+
 \copyto{}
 File\\
 Course coordinator
@@ -145,8 +172,8 @@ Course coordinator
 \navyrecordnotedistribution{%
 Evangelista\\%
 Devries\\
-Kiriakidis\\
-O'Brien}%
+Kutzer\\
+Severson}%
 %\navyrecordnoteconcurrences{%
 %\navyrecordnoteconcurrence{08K}
 %\navyrecordnoteconcurrence{08I}}
@@ -155,7 +182,7 @@ O'Brien}%
 
 \section{}  This memo provides course policies for Evangelista's \usnaCourseTerm\ \usnaCourseNumber\ section.
 
-\section{}  The policies here are adapted from those provided by Devries for EW202 and EW305 using Navy standard memorandum format and to insert the updated 2020 EW305 learning outcomes.
+\section{}  The policies here are adapted from those provided by CAPT Severson for EW309.
 
 %\section{} File information: \gitMark
 \end{document}
