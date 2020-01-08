@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \newcommand{\myroot}{../..}
 \usepackage[slides]{\myroot/course}
@@ -6,6 +6,8 @@
 \subtitle{Problem statement and background research, \usnaCourseTerm}
 \author{\usnaInstructorShort}
 \date{\today}
+
+\usepackage{media9}
 
 \begin{document}
 \frame{\titlepage}
@@ -22,7 +24,7 @@
 \end{column}
 \begin{column}{0.33\textwidth}
 \begin{center}
-includegraphic here
+\includegraphics[width=\columnwidth]{\myroot/figures/l2-f1.png}
 \end{center}
 \end{column}
 \end{columns}
@@ -46,9 +48,12 @@ includegraphic here
 \item Assumptions
 \end{itemize}
 \end{itemize}
+\hfill\includegraphics[width=0.5\columnwidth]{\myroot/figures/l2-f2.png}
 }
 
 \frame{\frametitle{Can you identify the issues with this problem statement?}
+\begin{columns}
+\begin{column}{0.66\textwidth}
 \begin{itemize}
 \item Client's original problem statement:
 \begin{quotation}
@@ -60,6 +65,12 @@ An ecologically concerned client has asked you to help them change their home he
 Identify the most cost-effective and ecologically friendly change the client can make to reduce their home energy heating cost.
 \end{quotation}
 \end{itemize}
+\end{column}
+\begin{column}{0.33\textwidth}
+\vfill
+\includemedia[width=\columnwidth]{\includegraphics[width=\columnwidth]{\myroot/figures/l2-f3.png}}{\myroot/figures/l2-f3.gif}
+\end{column}
+\end{columns}
 } % animated GIF adds what? 
 
 \frame{\frametitle{How to develop a problem statement}
