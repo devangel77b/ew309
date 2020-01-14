@@ -1,0 +1,3 @@
+[submodule "course/3-computer-vision/WRC_MATLABCameraSupport"]
+	path = course/3-computer-vision/WRC_MATLABCameraSupport
+	url = git@github.com:kutzer/WRC_MATLABCameraSupport.git
