@@ -1,0 +1,93 @@
+\documentclass[10pt]{article}
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\usepackage[plain]{fancyref}
+\renewcommand{\LaTeX}{Latex}
+\usepackage{graphicx}
+
+\title{EW309 Introduction to \LaTeX: Getting started with \LaTeX\ in Overleaf}
+\author{EW309 staff}
+\date{\today}
+
+\begin{document}
+\maketitle 
+
+\begin{abstract}
+In technical writing, the technical content (proofs, discussion, results, etc.) is far more important than the formatting (font sizes, heading sizes and colors, indenting standards, etc.) and stylistic choices made by the author. \LaTeX\ is a document preparation system that greatly simplifies the production of technical publications by formatting the document for you. The goal of this exercise is to get started with \LaTeX\ using an online \LaTeX\ compiler called Overleaf. 
+\end{abstract}
+
+\section{Requirements}
+The remainder of this document assumes:
+\begin{enumerate}
+\item Use of a computer connected to the internet
+\end{enumerate}
+    
+\section{Create an Overleaf Account}
+In this course you will use Overleaf to produce your course report in the Portable Document Format (PDF). Similar to the mbed online compiler for C/C++ programs, Overleaf provides an online compiler of \LaTeX\ code and produces a .pdf document. Using Overleaf will hopefully simplify the learning curve of \LaTeX\ by eliminating the need to install a \LaTeX\ distribution on your computer\footnote{If you do wish to try installing a local \LaTeX\ distribution, we suggest Miktex on Windows machines, and TexLive with TexWorks on Linux and Mac.}. Sign up for an account at \url{www.overleaf.com}:
+\begin{enumerate}
+\item Navigate to Login to Overleaf (\url{https://www.overleaf.com})
+\item Register for an account. You may use your \lstinline{@usna.edu} account or a personal account
+\item After registering, log in to your Overleaf account.
+\end{enumerate}
+    
+\section{Create a New Project}
+After creating an account and logging in, create a new project. You and your partner will both work on the files within the project, so only one of you needs to create the project. The other will be added to the project later in this tutorial.
+\begin{enumerate}
+\item Click the green \lstinline{New Project} in the top left corner of the Overleaf account page
+\item From the dropdown that appears, choose \lstinline{Example Project}
+\item A window will appear to name the project. Give it a descriptive title. You will be sharing the project with your partner and your instructor, so include your last names in the project name (e.g. \lstinline{EW309 Course report DeVries Severson}). After clicking OK, Overleaf will create the project. Your web browser should look like \fref{fig:1} (without the annotations).
+\end{enumerate}
+
+Note the newly created project is divided into three panes from left to right in your browser, annotated in \fref{fig:1}. The left pane shows the files associated with the project. To add references, figures, or custom style templates to your document, you add files to this pane. The middle pane shows the source code for the document. This pane is where you provide the content of the document. The right pane shows a compiled preview of source code, i.e. the completed document.
+
+\section{Share the Document with your Partner(s)}
+Overleaf makes it easy for multiple collaborators to work on the same document simultaneously. This will be useful for your team as the semester continues. One partner can add the results of the computer vision algorithm development while the other documents the turret pointing control design. To share the project with your team:
+\begin{enumerate}
+\item Click on the \lstinline{Share} button in the top right corner of your browser. A share window will appear. 
+\item Click on the \lstinline{Turn on Link Sharing} link in the share window.
+\item Copy the URL provided under \lstinline{Anyone with this link can edit this document}
+\item Email the URL to your teammate(s) and your instructor. Your instructor will provide feedback on your report using this link.
+\item Have your teammate(s) open the document. You can all work on it and continue this tutorial simultaneously. 
+\end{enumerate}
+    
+\section{Understanding the Basic Source Code}
+Look closely at the source code pane. You may notice the structure of the code looks oddly familiar to the structure of C/C++ programs you have written for your mbed. This is no coincidence; \LaTeX\ compiles the source code to produce the document in a similar manner. Instead of importing libraries on the mbed (e.g. \lstinline{#include mbed.h}), you include a \textbf{package} in \LaTeX\ by using the \lstinline!\usepackage{}! command. Instead of defining global variable placeholders for values in an mbed program (e.g. \lstinline{float x=3.0;}), you create placeholder text for global aspects of your document (e.g. \lstinline!\title{title goes here}!). Instead of creating a \lstinline!main(){ }! function that details the beginning of the sequence of commands that define the operation of the mbed program, you designate the beginning and end of the document using: 
+\begin{lstlisting}
+\begin{document}
+\end{document}
+\end{lstlisting}
+where all text and commands between these lines of code will appear in the compiled document. To get familiar with working in Overleaf, perform the following steps:
+\begin{enumerate}
+\item On line 3, change the text in the \lstinline!\title{}! command. Rename your document to something relevant to the course, e.g. \lstinline{EW309 Course Report}. Enter your names in the \lstinline!\author{}! command.
+\item Click the \lstinline{Recompile} button at the top left of the right-most pane (the document preview pane). Look at the document preview. The title should now contain the text you put in. Note, the layout of the document is exactly the same! You didn’t have to waste your time changing fonts, font sizes, or paragraph spacing.
+\item Scroll down to around line 14 to the \lstinline!\section{Introduction}! command. On the next line add a subsection called \textbf{Background Research} by typing \lstinline!\subsection{Background Research}!.
+\item Recompile the source code. The document preview should now show a new subsection entitled \textbf{1.1 Background Research}. Note, you didn’t have to change any font sizes, indent any text, or do any numbering! You can now add sections, subsections, and even subsubsections with appropriate titles as needed.
+\end{enumerate}
+    
+\section{Entering Equations}
+\LaTeX\ makes typesetting equations much easier than in a word processor like Microsoft Word or Google Docs. The source code does this by specifying what are called \textbf{environments}. By specifying that characters are in the \lstinline{equation} environment, the compiler knows that it should render them as math. It can also number the equations automatically so you can reference the equation in the text of your main document. Try the following exercises to get a feel for two primary ways to enter equations.
+\begin{enumerate}
+\item\label{step:eq1} Somewhere in the body of your document enter the following code to produce the quadratic equation and recompile the document:\
+\begin{lstlisting}
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{equation}
+\end{lstlisting}
+Notice after recompiling that your document has a nicely numbered equation. The \lstinline!\frac{}{}! command took the text in the first set of curly brackets and put it in the numerator and the text in the second set of curly brackets went into the denominator. Furthermore, the \lstinline!\sqrt{}! command put the square root symbol over all text within the curly brackets. Lastly, the \lstinline!\pm! command created the plus-or-minus symbol. There are commands for just about every mathematical symbol, operator, Greek letter, or anything else you could possibly use. To find the command to produce what you are looking for, just Google it (e.g. ``integral in latex'')! 
+
+\item Sometimes you need an equation to appear within the text rather than being offset and numbered like in step~\ref{step:eq1}. To do this, \LaTeX\ provides \textbf{inline math mode} which is implemented by putting dollar signs around the math expression. Somewhere within the sample text provided in the example, enter the following text and recompile the document: \lstinline{$\alpha = \beta + \kappa$}. Note that the resulting equation is \emph{not} offset and numbered, but appears within the text of the paragraph. However, it retains the nice mathy look.
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\columnwidth]{fig1.png}
+\end{center}
+\caption{An example of a basic article produced using \LaTeX\ in Overleaf. The left pane shows the files and folders associated with the project. The middle pane is the source code editor and the right pane is a preview of the compiled document.}
+\label{fig:1}
+\end{figure}
+
+\section{Make it your own}
+Modify your source code. Add in your problem statement, background research, and computer vision content from previous homework assignments as sections in your document. Delete all the unnecessary sample text and figures. This will be your working draft for the rest of the semester. You will add content and get feedback.
+\end{document}
