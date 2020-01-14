@@ -98,7 +98,7 @@ In \Matlab, all graphics have an underlying dependency between parents and child
 \label{fig:1}
 \end{figure*}
 
-A figure object (i.e. the window containing your plot) whose handle is contained in the variable \lstinline{figEXAMPLE} can be created using the following\sidenote{\lstinline{Parent} 0 refers to the \Matlab\ root object}:
+A figure object (i.e. the window containing your plot) whose handle is contained in the variable \lstinline{figEXAMPLE} can be created using the following\sidenote{\lstinline{Parent 0} refers to the \Matlab\ root object}:
 \begin{lstlisting}[style=usnaMatlab]
 figEXAMPLE = figure('Parent',0);
 \end{lstlisting}
@@ -148,7 +148,7 @@ set(axsEXAMPLE); % should print out the options for all properties
 \section{Bringing it all together}
 Take the time to combine everything you have learned into a single \Matlab\ script to accomplish the following:
 \begin{enumerate}
-\item Initialize your camera and acquire an image.
+\item Initialize your camera and acquire an image\sidenote{You may wish to include a call to \lstinline{drawnow} immediately afterinitializing the camera to force it to update the image.}.
 \item Create a figure named \lstinline{EW309 - Camera Overlay Test} (use the \lstinline{Name} property). You should see this name displayed in the title bar of the window. 
 \item Create an axes in your figure and adjust the \lstinline{NextPlot} property.
 \item Add your image to the axes.
