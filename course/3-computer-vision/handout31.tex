@@ -6,6 +6,13 @@
 \author{\usnaInstructorShort}
 \date{\printdate{\courseWeekTwo}}
 
+
+\usepackage{tikz}
+\tikzset{
+block/.style={rectangle, minimum width=0.75in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
+arrow/.style={thick,<-,>=stealth},
+noarrow/.style={thick}}
+
 \begin{document}
 \maketitle
 
@@ -65,6 +72,28 @@ This will both speed up your code and eliminate inadvertent misplacement or dupl
 \subsection{Parent-child relationships in \Matlab\ graphic objects}
 In \Matlab, all graphics have an underlying dependency between parents and children. A basic example of \Matlab\ graphics dependency is given in \fref{fig:1}\sidenote{This forms a tree structure which can be traversed and operated on algorithmically and is sometimes of use when trying to group and move or operate on objects together.}.
 \begin{figure*}
+\begin{center}
+\begin{tikzpicture}
+\node (root) [block] {\Matlab\\root};
+\node (fig1) [block, below of=root, node distance=0.625in] {\lstinline{figure}};
+\node (ax1) [block, below of=fig1, node distance=0.625in] {\lstinline{axes}};
+\node (text) [block, below of=ax1, node distance=0.625in] {\lstinline{text}};
+\coordinate [below of=ax1, node distance=0.3125in] (x); 
+\node (image) [block, left of=text, node distance=1in] {\lstinline{image}};
+\node (line) [block, left of=image, node distance=1in] {\lstinline{line}\\(\lstinline{plot}, etc.)};
+\node (etc1) [block, right of=text, node distance=1in] {etc.};
+\node (etc2) [block, right of=etc1, node distance=1in] {etc.};
+
+\draw [arrow] (root) -- (fig1); 
+\draw [arrow] (fig1) -- (ax1); 
+\draw [arrow] (ax1) -- (text); 
+\draw [noarrow] (image) |- (x); 
+\draw [noarrow] (line) |- (x); 
+\draw [noarrow] (etc1) |- (x); 
+\draw [noarrow] (etc2) |- (x); 
+\end{tikzpicture}
+
+\end{center}
 \caption{A basic example of \Matlab\ graphics dependency (tree). Arrows depict dependency and are shown pointing from child to parent.}
 \label{fig:1}
 \end{figure*}
