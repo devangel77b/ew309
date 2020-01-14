@@ -1,0 +1,15 @@
+\documentclass{tufte-handout}
+
+\newcommand{\myroot}{../..}
+\usepackage[handout]{\myroot/course}
+\title{\usnaCourseNumber\ Task 3.4 -- Computer vision: testing \& validation}
+\author{\usnaInstructorShort}
+\date{\printdate{\courseWeekTwo}}
+
+\begin{document}
+\maketitle
+
+After you have created your functions, validate them with follow-on tests and document the results. The goal of this validation is to show qualitatively, in your report, how well these functions work. To do this, you need to establish a ground truth. For example, using the same crosshair used for estimating scale, you can take two new images at known distances with the crosshair aligned with the center of the image. Once you have these images, find the pixel coordinates corresponding to the marked tick marks on the crosshair, input the distance and these values into your function, and compare the results to the known tick mark spacing. The difference between the estimated spacing and the actual spacing will give you an idea of how well your functions works!
+
+Similarly, with your target thresholding function, take images containing known targets at various positions in the image and various distances. Demonstrate that your function successfully finds the target, calculates its centroid, etc. 
+\end{document}
