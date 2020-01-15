@@ -6,6 +6,12 @@
 \author{\usnaInstructorShort}
 \date{\printdate{\courseWeekTwo}}
 
+\usepackage{tikz}
+\tikzset{
+block/.style={rectangle, minimum width=1.25in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
+arrow/.style={thick,->,>=stealth},
+noarrow/.style={thick}}
+
 \begin{document}
 \maketitle
 Digital images must be processed to generate actionable information for an algorithm. For this project, we need to identify and track a target with known color and shape in a cluttered environment.
@@ -15,6 +21,27 @@ A simplified functional block diagram for the recommended target identification 
 
 \begin{figure}
 \begin{center}
+\begin{tikzpicture}
+\coordinate (input); 
+\node (threshold) [block,below of=input, node distance=0.65in] {color\\threshold};
+\node (holes) [block,below of=threshold, node distance=0.65in] {fill holes};
+\node (minarea) [block,below of=holes, node distance=0.65in]{minimum area\\threshold};
+\node (label) [block,below of=minarea, node distance=0.65in]{label connected\\components};
+\coordinate [right of=label, node distance=1in] (llabel);
+\node (props) [block, below of=label, node distance=0.65in]{calculate labelled\\region properties};
+\node (propthreshold) [block, below of=props, node distance=0.65in]{property\\threshold};
+\coordinate [below of=propthreshold, node distance=0.65in] (output);
+
+\draw [arrow] (input) -- node [pos=0.5, right] {color image} (threshold);
+\draw [arrow] (threshold) -- node [pos=0.5, right] {binary image} (holes);
+\draw [arrow] (holes) -- node [pos=0.5, right] {filled binary image}(minarea);
+\draw [arrow] (minarea) -- node[pos=0.5, right] {filled and area thresholded binary image} (label);
+\draw [arrow] (label) -- node [pos=0.5, left]{labelled image} (props);
+\draw [noarrow] (label) -- (llabel);
+\draw [arrow] (llabel) |- node[pos=0.5,right]{labelled region properties} (propthreshold);
+\draw [arrow] (props) -- node [pos=0.5, left]{labelled image}(propthreshold);
+\draw [arrow] (propthreshold) -- node[pos=0.5, right]{target binaries and properties}(output);
+\end{tikzpicture}
 \end{center}
 \caption{Simplified functional block diagram for the target identification and tracking algorithm.}
 \label{fig:1}
@@ -142,7 +169,7 @@ end
 Where \lstinline{binTargets} will be a cell array whose elements are individual binary images.
 
 \section{Packaging your results}
-Combine your target thresholding and properties code a single \Matlab\ function whose input is a color image and whose outputs are properties for viable targets and binaries for each viable target. For example, using the variable names presented in this document:
+Combine your target thresholding and properties code into a single \Matlab\ function whose input is a color image and whose outputs are properties for viable targets and binaries for each viable target. For example, using the variable names presented in this document:
 \begin{lstlisting}[style=usnaMatlab]
 [statsTargets,binTargets] = targetThreshold(im);
 \end{lstlisting}
@@ -159,7 +186,7 @@ this function should accomplish the following:
 \end{enumerate}
 
 \section{Documenting your function}
-Take the time to write help documentation for your function. This will be a long semester, and it is easy to forget how to use even code that you have written. The commonly used format for \Matlab\ \lstinline{help} documentation is as follows:
+Take the time to write help documentation for your function. This will be a long semester, and it is easy to forget how to use even code that you have written. The commonly used format for \Matlab\ \lstinline{help} documentation is to prepare a \textbf{docstring} within comments at the start of the function as follows:
 \begin{lstlisting}[style=usnaMatlab]
 function [out1, out2, ...] = funcName(in1, in2, ...)
 %FUNCNAME A brief description of what the function does
