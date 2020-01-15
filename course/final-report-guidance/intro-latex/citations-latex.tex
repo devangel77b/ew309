@@ -18,44 +18,81 @@
   By this point in your academic career, you are probably all too familiar how annoyingly tedious it can be to add references to a document. LaTeX makes it easy by doing all of the citation style formatting for you. The goal of this exercise is to teach you how to add references to a project and cite them in your document.
 \end{abstract}
 
+\section{Prerequisites}
+The remainder of this document assumes:
+\begin{enumerate}
+\item Use of a computer connected to the internet
+\item An Overleaf account
+\item Completion of Part 1, Introduction to \LaTeX
+\end{enumerate}
+
+\section{Add references to a project}
+Traditionally in \LaTeX, references are managed in a separate bibliography file with a \lstinline{.bib} extension. It is often referred to as you ``dot bib'' file. When you created your project in Part 1, Overleaf created a bibliography file for you called \lstinline{references.bib}. Learn about adding references to your document by performing the following:
+\begin{enumerate}
+\item Open your Overleaf project.
+\item In the file browser pane on the left-hand side, click on the file \lstinline{references.bib} to view its source code.
+\item Investigate the source code for the file. Your screen should appear as in \fref{fig:1}.
+\end{enumerate}
+
+Looking at the source code, note there is a single reference in the \lstinline{.bib} file. The text following the \lstinline{@} symbol classifies the type of reference; in this case it is a book. The most common reference types are \lstinline{book} for books, \lstinline{article} for a journal or magazine article, \lstinline{conference} or \lstinline{inproceedings} for a paper published in a conference, and \lstinline{misc} for miscellaneous references such as webpages. For more details about the types of references, Overleaf provides some helpful information: \url{https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex}
+
+Let’s look closer at the reference entry. After classifying the type of reference using \lstinline!@book{}!, the contents inside the curly brackets define the attributes of the reference. The first element is the reference’s label. This is the name \LaTeX\ gives the reference so that you can refer to it in your \lstinline{main.tex} file. The remaining attributes are all comma separated with \lstinline{attribute=value} (e.g. \lstinline!title={The Hitchhiker's Guide to the Galaxy}!). You can manually fill in all the attributes and \LaTeX\ will take care of all of the formatting. Common attributes include \lstinline{title}, \lstinline{author}, \lstinline{year} published, \lstinline{publisher}, \lstinline{edition}, \lstinline{volume}, \lstinline{pages} etc. For a list of attributes see \url{https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex} and the references therein.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\columnwidth]{fig21.png}
+\end{center}
+\caption{A screenshot of the source code for the sample bibliography file in your Overleaf project.}
+\label{fig:1}
+\end{figure}
+
+\section{Add references the easy way} 
+Manually entering references is almost as tedious as typing them directly into a word document. Luckily, most reputable conferences and journals will give you the bibliography entry and you can simply copy and paste it into your \lstinline{references.bib} file. Try this exercise to learn how 
+\begin{enumerate}
+\item Open a new tab in your internet browser and navigate to the example paper found here: (\url{https://ieeexplore.ieee.org/document/932914}). Your screen should appear as in \fref{fig:2}.
+\item Click the download button near the top of the screen. Figure two shows the button circled in red with arrows pointing toward it.
+\item In the window that appears, choose \lstinline{Citation only} and \lstinline{BibTex}. Click \lstinline{Download}
+\item A new window will appear showing the \LaTeX\ reference. Your screen should appear similar to \fref{fig:3}. 
+\item Copy the text and paste it into your \lstinline{references.bib} file in Overleaf.
+\item Change the label in the reference from \lstinline{932914} to a useful name that you can remember. For example, Google Scholar will label the references with the author's lastname, the year, and the first word of the title (e.g. \lstinline{lefeber2001observer}).
+\end{enumerate}
+
+There are many third party applications that make reference management even easier. There are too many to list, but Mendeley, Zotero, and ReadCube are popular online reference managers of which you may be familiar. Any quality reference manager can export a \lstinline{.bib} file that you can upload into your project.
+\begin{figure}
+\begin{center}
+\includegraphics[width=\columnwidth]{fig22.png}
+\end{center}
+\caption{An example of a paper you might come across during your background research. IEEE is a common source for technical papers. Click on the Download button to download the citation for the reference.}
+\label{fig:2}
+\end{figure}
+
+\section{Citing a reference in your document}
+Once your references are in the \lstinline{references.bib} file, citing the reference in your document is the easy part. Follow these steps to cite your newly added reference:
+\begin{enumerate}
+\item\label{step1cite} Remember the label of your newly added reference. 
+\item In the Overleaf file browser, click on your main file \lstinline{main.tex} to open its source code.
+\item Somewhere in the body of your document, type \lstinline!\cite{referenceLabel}! where you replace \lstinline{referenceLabel} with the label of your reference from Step~\ref{step1cite}.
+\item Compile the document. You’ll notice where you entered the cite command there appears a citiation in the form of a number inside square brackets, e.g. \cite{lefeber2001observer}. 
+\item Scroll to the bottom of the document in the document preview. Your beautifully formatted reference should appear!
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\columnwidth]{fig23.png}
+\end{center}
+\caption{An example of a paper you might come across during your background research. IEEE is a common source for technical papers.}
+\label{fig:3}
+\end{figure}
+
+\section{Optional: Dig deeper}
+We’ve just scratched the surface with what \LaTeX\ can do. You can change the bibliography style to any of the popular citation styles (Chicago, AMA, IEEE, etc.) or create your own custom citation style. For life science, biological, and biomechanics use, citations may be in parenthetical form such as (Author, year) with the references organized alphabetically; you can get this behavior by changing only a few lines of code and adding the \lstinline{natbib} package. 
+
+The style is set by the command \lstinline!\bibliographystyle{plain}! near the bottom of your source code. You can find bibliography style files online. You can recognize bibliography style files by their \lstinline{.bst} file extension (short for ``bibliography style''). For example, the IEEE citation style file can be found here: \url{http://www.math.md/files/download/csjm/2016/IEEEtran.bst}.
+
+The compiler knows where to find the references since your source code in \lstinline{main.tex} includes the command \lstinline!\bibliography{references}! that points the compiler to the references.bib file in the same directory. You can include additional bibliography files by comma separating them (e.g. \lstinline!\bibliography{ref1, ref2}!). This is useful, for example, if you want to incorporate your partner’s and your individual reference files. Just make sure you are careful that you don’t have overlapping labels in any of the references contained in the files.
+
+\bibliographystyle{IEEEtran}
+\bibliography{citations-latex}
 \end{document}
 
-Requirements
-The remainder of this document assumes:
-    1. Use of a computer connected to the internet
-    2. An Overleaf account
-    3. Completion of Part 1
-Add References to a Project
-Traditionally in LaTeX, references are managed in a separate bibliography file with a “.bib” extension. It is often referred to as you “dot bib” file. When you created your project in Part 1, Overleaf created a bibliography file for you called “references.bib”. Learn about adding references to your document by performing the following:
-    1. Open your Overleaf project.
-    2. In the file browser pane on the left-hand side, click on the file “references.bib” to view its source code.
-    3. Investigate the source code for the file. Your screen should appear as in Figure 1.
-Looking at the source code, note there is a single reference in the .bib file. The text following the “@” symbol classifies the type of reference, in this case it is a book. The most common reference types are “book” for books, “article” for a journal or magazine article, “conference” or “inproceedings” for a paper published in a conference, and “misc” for miscellaneous references such as webpages. For more details about the types of references, Overleaf provides some helpful information: https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex
-Let’s look closer at the reference entry. After classifying the type of reference using “@book{}”, the contents inside the curly brackets define the attributes of the reference. The first element is the reference’s label. This is the name LaTeX gives the reference so that you can refer to it in your “main.tex” file. The remaining attributes are all comma separated with “attribute=value” (e.g. title={The Hitchhiker's Guide to the Galaxy}). You can manually fill in all the attributes and LaTeX will take care of all of the formatting. Common attributes include title, author, year published, publisher, edition, etc. For a list of attributes see https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex and the references therein.
 
-Figure 1: A screenshot of the source code for the sample bibliography file in your Overleaf project.
-Add References the Easy Way 
-Manually entering references is almost as tedious as typing them directly into a word document. Luckily, most reputable conferences and journals will give you the bibliography entry and you can simply copy and paste it into your references.bib file. Try this exercise to learn how 
-    1. Open a new tab in your internet browser and navigate to the example paper found here: (https://ieeexplore.ieee.org/document/932914). Your screen should appear as in Figure 2.
-    2. Click the download button near the top of the screen. Figure two shows the button circled in red with arrows pointing toward it.
-    3. In the window that appears, choose “Citation only” and “BibTex”. Click Download
-    4. A new window will appear showing the LaTeX reference. Your screen should appear similar to Figure 3. 
-    5. Copy the text and paste it into your “references.bib” file in Overleaf.
-    6. Change the label in the reference from “932914” to a useful name that you can remember. For example, I like to label the reference with the author’s last name and the year it was published (e.g. Lefeber2001).
-There are many third party applications that make reference management even easier. There are too many to list, but Mendeley, Zotero, and ReadCube are popular online reference managers of which you may be familiar. Any quality reference manager can export a “.bib” file that you can upload into your project.
-
-Figure 2: An example of a paper you might come across during your background research. IEEE is a common source for technical papers. Click on the Download button to download the citation for the reference.
-Citing a Reference in your Document
-Once your references are in the “references.bib” file, citing the reference in your document is the easy part. Follow these steps to cite your newly added reference:
-    1. Remember the label of your newly added reference. 
-    2. In the Overleaf file browser, click on your main file “main.tex” to open its source code.
-    3. Somewhere in the body of your document, type “\cite{referenceLabel}” where you replace “referenceLabel” with the label of your reference from Step 1.
-    4. Compile the document. You’ll notice where you entered the cite command there appears a citiation “[#]” where # corresponds to the citation number. 
-    5. Scroll to the bottom of the document in the document preview. Your beautifully formatted reference should appear!
-
-
-Figure 3: An example of a paper you might come across during your background research. IEEE is a common source for technical papers.
-
-Optional: Dig Deeper
-We’ve just scratched the surface with what LaTeX can do. You can change the bibliography style to any of the popular citation styles (Chicago, AMA, IEEE, etc.) or create your own custom citation style. The style is set by the command “\bibliographystyle{plain}” near the bottom of your source code. You can find bibliography style files online. You can recognize bibliography style files by their “.bst” file extension (short for “bibliography style”). For example, the IEEE citation style file can be found here: (http://www.math.md/files/download/csjm/2016/IEEEtran.bst).
-The compiler knows where to find the references since your source code in main.tex includes the command “\bibliography{references}” that points the compiler to the references.bib file in the same directory. You can include additional bibliography files by comma separating them (e.g. \bibliography{ref1, ref2}). This is useful, for example, if you want to incorporate your partner’s and your individual reference files. Just make sure you are careful that you don’t have overlapping labels in any of the references contained in the files.
