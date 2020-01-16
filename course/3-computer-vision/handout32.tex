@@ -162,8 +162,8 @@ statsTargets = stats(idx);
 \end{lstlisting}
 where \lstinline{statsTargets} is a structured array with fields matching \lstinline{stats}. To recover individual binary images of a target, we can use the following:
 \begin{lstlisting}[style=usnaMatlab]
-for i = idx
-	binTargets{i} = lbl == i;
+for i = numel(idx)
+	binTargets{i} = lbl == idx(i);
 end
 \end{lstlisting}
 Where \lstinline{binTargets} will be a cell array whose elements are individual binary images.
