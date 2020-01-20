@@ -21,11 +21,23 @@
 \begin{frame}
 \frametitle{Motivation}
 \framesubtitle{Find the yellow, red, green, orange, or white buoy, line, or ball}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2a.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2b.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2c.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2d.png}
+
 Problem: The real world...
+
+\includegraphics[height=2cm]{\myroot/figures/l3-f2e.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2f.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2g.png}
+\includegraphics[height=2cm]{\myroot/figures/l3-f2h.png}
 \end{frame}
 
-\frame{\frametitle{The big picture}
-}
+\begin{frame}[label=bigpicture]
+\frametitle{The big picture}
+\end{frame}
+
 
 \frame{\frametitle{The big picture goal}
 \begin{enumerate}
@@ -39,19 +51,28 @@ Problem: The real world...
 
 Once we have a final filtered image, hopefully with a single target, 
 \item Calculate the centroid of the target in SI units (Part 3 - Estimating scale)
-\item Test our proceudre before implementing on real weapon (Part 4 - Testing and validation)
+\item Test our procedure before implementing on real weapon (Part 4 - Testing and validation)
 \end{enumerate}
 }
 
 \frame{\frametitle{What you see...}
+\begin{center}
+\includegraphics[height=7cm]{\myroot/figures/l3-f5.png}
+\end{center}
 }
 
 \frame{\frametitle{What your computer sees!}
+\begin{center}
+\includegraphics[height=7cm]{\myroot/figures/l3-f6.png}
+\end{center}
 }
 
 \frame{\frametitle{Grayscale images are stored as arrays (matrices)}
 \begin{columns}
 \begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f6.png}
+\end{center}
 \end{column}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
@@ -65,8 +86,22 @@ Once we have a final filtered image, hopefully with a single target,
 
 \frame{\frametitle{Color images}
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f8rgb.png}
+\end{center}
 \end{column}
+\begin{column}{0.1\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f8r.png}\\
+\vspace{0.4cm}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f8g.png}\\
+\vspace{0.4cm}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f8b.png}
+
+\end{center}
+\end{column}
+
 \begin{column}{0.5\textwidth}
 Even though the block looks ``red'' the block is really a combination of RGB values.
 \begin{itemize}
@@ -80,36 +115,56 @@ Even though the block looks ``red'' the block is really a combination of RGB val
 }
 
 \frame{\frametitle{How to accomplish our big picture goal with the USB camera}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l3-f9.png}
+%
+%\includegraphics[width=3cm]{\myroot/figures/l3-f9b.png}
+\end{center}
 }
 
 \frame{\frametitle{What can go wrong?}
 }
 
 \frame{\frametitle{There is only so far you can get with color alone}
+\begin{center}
+\includegraphics[height=7cm]{\myroot/figures/l3-f11.png}
+\end{center}
 }
 
 \frame{\frametitle{Choose your region properties wisely}
+\begin{center}
+\includegraphics[width=0.5\columnwidth]{\myroot/figures/l3-f12.png}
+\end{center}
 Region properties divide a binary image into contiguous regions. Compute numerical properties such as
 \begin{itemize}
 \item area (in pixels)
 \item centroid (in pixels)
 \item eccentricity (ratio of the distance between the foci and the major axis length)
 \end{itemize}
+\hfill\includegraphics[width=2cm]{\myroot/figures/l3-f12b.png}
 }
 
 \frame{\frametitle{Contrast makes life eas(ier)}
 \begin{columns}
 \begin{column}{0.5\textwidth}
-Easy: controlled enviornment. Uniform color object. Background very different from object. Background is homogeneous and uncluttered. 
+\begin{center}
+Easy\\
+\includegraphics[width=0.5\columnwidth]{\myroot/figures/l3-f13a.png}
+\end{center}
+Controlled environment. Uniform color object. Background very different from object. Background is homogeneous and uncluttered. 
 \end{column}
 \begin{column}{0.5\textwidth}
-Hard. 
+\begin{center}
+Hard\\
+\includegraphics[width=0.5\columnwidth]{\myroot/figures/l3-f13b.png}
+\includegraphics[width=0.33\columnwidth]{\myroot/figures/l3-f13c.png}
+\includegraphics[width=0.33\columnwidth]{\myroot/figures/l3-f13d.png}
+\end{center}
 \end{column}
 \end{columns}
 }
 
-\frame{\frametitle{The big picture}
-}
+\againframe{bigpicture}
 
 \frame{\frametitle{Slow update rate}
 \begin{itemize}
