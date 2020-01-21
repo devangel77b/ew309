@@ -1,0 +1,94 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Powerpole connectors}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{Simplified connectors overview}
+\begin{columns}
+\begin{column}{0.33\textwidth}
+\begin{itemize}
+\item Banana 
+\item Barrel 
+\item Blade
+\item Circular
+\item Coaxial (e.g. RF)
+\item D-sub
+\item Fiber optic
+\item Rectangular
+\item Spring loaded
+\item Terminals
+\item etc.
+\end{itemize}
+\end{column}
+\begin{column}{0.66\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Powerpole connectors}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Modular connectors
+\begin{itemize}
+\item Housings can connect to one another, enabling custom color/connector configurations.
+\end{itemize}
+\item Available in various sizes
+\begin{itemize}
+\item \SI{15}{\ampere}, \SI{30}{\ampere}, \SI{45}{\ampere}, etc.
+\end{itemize}
+\item Available in multiple forms
+\begin{itemize}
+\item Wire-to-wire
+\item Wire-to-board
+\end{itemize}
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Connector anatomy}
+\end{frame}
+
+\begin{frame}
+\frametitle{Installing powerpole connectors}
+\end{frame}
+
+\begin{frame}
+\frametitle{Documentation notes}
+% For items like connectors, documentation in a report can be tricky
+% Generally, be succints
+\begin{itemize}
+\item Make and model
+\item Summarize relevant specifications
+\item State requirements to show that the connectors will work
+\end{itemize}
+
+Example:
+\begin{quotation}
+PP15 Powerpole contacts are used to connect... the PP15 is rated for \SI{15}{\ampere}, which can be safely used with the \SI{10}{\ampere} peak required to...
+\end{quotation}
+\end{frame}
+\end{document}
