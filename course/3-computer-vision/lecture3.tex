@@ -61,7 +61,7 @@ Problem: The real world...
 \draw[arrow] (controller) -- node [pos=0.5, name=x] {} (plant);
 \draw[noarrow] (plant) -- (output); 
 
-\node[block, below of=x, node distance=1.5cm,align=center](sensor) {sensor};
+\node[block, below of=x, node distance=1.5cm,align=center](sensor) {position\\sensor};
 \draw[arrow] (output) |- (sensor);
 \draw[arrow] (sensor) -| node [pos=0.95, left] {$-$} (sum);
 
