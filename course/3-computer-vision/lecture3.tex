@@ -11,6 +11,18 @@
 \author{\usnaInstructorShort}
 \date{\today}
 
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\tikzset{
+	arrow/.style={thick,->,>=stealth},
+	noarrow/.style={thick},
+	block/.style = {draw,rectangle, minimum height=3em, minimum width=6em},
+	sum/.style = {draw, circle, node distance=2cm},
+	input/.style = {coordinate},
+	output/.style = {coordinate},
+	pinstyle/.style = {pin edge={to-, thin, black}},
+	}
+	
 \usetheme{Hopper}
 
 \begin{document}
@@ -36,6 +48,31 @@ Problem: The real world...
 
 \begin{frame}[label=bigpicture]
 \frametitle{The big picture}
+\begin{center}
+\begin{tikzpicture}[auto, >=latex']
+\node[block] (input) {target angle};
+\node[sum, right of=input] (sum) {};
+\node[block, right of=sum, node distance=2cm,align=center] (controller) {controller\\$KG_c(s)$};
+\node[block, right of=controller, node distance=3cm,align=center] (plant) {plant\\$G_{sys}(s)$};
+\node[output, right of=plant, node distance=2cm] (output) {};
+
+\draw [arrow] (input) -- node [pos=0.95, above] {$+$} (sum); 
+\draw[arrow] (sum) -- (controller);
+\draw[arrow] (controller) -- node [pos=0.5, name=x] {} (plant);
+\draw[noarrow] (plant) -- (output); 
+
+\node[block, below of=x, node distance=1.5cm,align=center](sensor) {sensor};
+\draw[arrow] (output) |- (sensor);
+\draw[arrow] (sensor) -| node [pos=0.95, left] {$-$} (sum);
+
+\node [above of=controller, node distance=1.5cm] (controllerpic) {\includegraphics[width=2cm]{\myroot/figures/l3-f3controller.png}};
+\node [above of=plant, node distance=1.8cm] (plantpic) {\includegraphics[width=2cm]{\myroot/figures/l3-f3plant.png}};
+\node [below of=sensor, node distance=1.25cm] (sensorpic) {\includegraphics[width=2cm]{\myroot/figures/l3-f3sensor.png}};
+\node [below of=input, node distance=2.5cm] (targetpica) {\includegraphics[width=1cm]{\myroot/figures/l3-f3targeta.png}};
+\node [below of=input, node distance=1.3cm] (targetpicb) {\includegraphics[width=2cm]{\myroot/figures/l3-f3targetb.png}};
+
+\end{tikzpicture}
+\end{center}
 \end{frame}
 
 
