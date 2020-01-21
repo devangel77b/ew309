@@ -1,0 +1,86 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Nerf Gun Analysis}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+
+%\RequirePackage{tikz}
+%\usetikzlibrary{shapes,arrows}
+%\tikzset{
+%	arrow/.style={thick,->,>=stealth},
+%	noarrow/.style={thick},
+%	block/.style = {draw,rectangle, minimum height=3em, minimum width=6em},
+%	sum/.style = {draw, circle, node distance=2cm},
+%	input/.style = {coordinate},
+%	output/.style = {coordinate},
+%	pinstyle/.style = {pin edge={to-, thin, black}},
+%	}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{Hardware overview}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l4-f2.png}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+Nerf Rival Khaos MXVI-4000 Blaster
+\begin{itemize}
+\item fully motorized
+\item 40 round capacity
+\item \SI{100}{feet\per\second} (fps) muzzle velocity
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hardware overview: key components}
+\framesubtitle{Do sequential build here}
+\begin{columns}
+\begin{column}{0.66\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l4-f3.png}
+\end{center}
+\end{column}
+\begin{column}{0.33\textwidth}
+\begin{itemize}
+\item Stock battery
+\item Pusher (feed) motor\\
+{\scriptsize looks like a conveyer belt}
+\item Counter rotating flywheel motors
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions to consider}
+\begin{enumerate}
+\item What is the nominal voltage for the \usnaCourseNumber\ blaster?\\
+{\scriptsize The stock battery pack holds six D batteries.}
+\item What pair of powerpole connectors is wired to the feed motor?\\
+{\scriptsize What kind of motor is used for the feed?}
+\item Which pair of powerpole connectors is wired to the flywheel motors?\\
+{\scriptsize What kind of motors are used for the flywheel?}
+\item If the gun motors require one voltage, and the motor for the turret requires a different voltage, how do you power all of them with the same power supply? 
+\end{enumerate}
+\end{frame}
+\end{document}
