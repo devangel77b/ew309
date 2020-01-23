@@ -14,8 +14,8 @@ The units of a digital image are natively in pixels. To use information from a c
 What happens in your video when you move the target closer to the camera? Similarly, what happens when you move the target farther from the camera? Even though the target is the same size, it appears larger when closer; and smaller when farther away. This means the relationship between pixels and linear units is dependent on the distance between the target and camera!
 For an ``ideal'' (pinhole) camera, this relationship can be represented mathematically given a distance between the camera and the point it is looking at, defined as $s$:
 \begin{align}
-x_{pixels} &= a \dfrac{x_{linearUnits}}{s} + b \\
-y_{pixels} &= c \dfrac{y_{linearUnits}}{s} + d
+x_{pixels} &= a \dfrac{x_{linearUnits}}{s} + b \label{eq:1} \\
+y_{pixels} &= c \dfrac{y_{linearUnits}}{s} + d \label{eq:2}
 \end{align}
 
 In these equations, $x_{pixels}$ and $y_{pixels}$ represent the pixel coordinate relative to the upper left of the picture (\fref{fig:1}) and $x_{linearUnits}$ and $y_{linearUnits}$ represent the  $x$ and $y$ coordinates in the real world. Note that using a common unit like \si{\centi\meter} for $x_{linearUnits}$, $y_{linearUnits}$, and $s$ is advisable. In these equations, the $a$ and $c$  terms scale units to pixels, and the $b$ and $d$ terms represent the pixel offset between the image origin (in the upper left) and the center of the image. The position described by $b$ and $d$ is typically referred to as the principal point. 
@@ -33,18 +33,43 @@ In these equations, $x_{pixels}$ and $y_{pixels}$ represent the pixel coordinate
 For our application, we will be using camera mounted to the rail of our weapon as a targeting mechanism. This means we expect our targets to be near the center of the image prior to firing. With this in mind, using the center of the image as a reference for measuring linear units seems to make sense (\fref{fig:1}).
 
 \section{Collecting data}
+%Create a uniform grid on the board (a crosshair with large tick marks labelled with a ruler or tape measure will work), center your camera on the crosshair, and take images at a series of known distances. Be sure to fixture your camera (or hold it very still) when taking the images; and write down the distance associated with each image. 
+
+% Kutzer modifications on 23 Jan 2020
 Create a uniform grid on the board (a crosshair with large tick marks labelled with a ruler or tape measure will work), center your camera on the crosshair, and take images at a series of known distances. Be sure to fixture your camera (or hold it very still) when taking the images; and write down the distance associated with each image. 
+When collecting data to solve for the constants $a$, $b$, $c$, and $d$ as given in \fref{eq:1} and \fref{eq:2}, you will need the following:
+\begin{enumerate}
+\item The distance to the grid ($s$), measured in linear units (e.g. \si{\centi\meter}).
+\item The $x$ and $y$ tick mark locations referenced to the center of the crosshair in linear units (e.g. \si{\centi\meter}). \textbf{Note that the crosshair must be aligned with the center of the image.}
+\item\label{item:3} The $x$ and $y$ tick mark locations referenced to the image coordinate frame in the \textbf{upper left} of the image in pixels.
+\end{enumerate}
+
+Data for item~\ref{item:3} above can be collected using the function \lstinline{ginput.m} in \Matlab. Given an image plotted in a figure window whose handle is saved in \lstinline{fig}, \lstinline{ginput.m} can be used to collect a single $x$ and $y$  location in pixels using the following:
+\begin{lstlisting}[style=usnaMatlab]
+figure(fig);
+[x,y] = ginput(1);
+\end{lstlisting}
+Here, \lstinline{figure(fig)} brings the figure containing your image to the foreground, and \lstinline{[x,y] = ginput(1)} allows you to select the location of one pixel saving the $x$ information in the variable \lstinline{x}, and the $y$ information in the variable \lstinline{y}. 
+
+
+
 
 \section{Processing data}
-Using the tools from parts 1--3 and the \Matlab\ Examples, measure the number of pixels to your tick-marks relative to the center of the image and create a table of values for the $x$ and $y$ directions for each distance. Using this table, investigate the scaling in $x$ and $y$ for each of your distances.
+%Using the tools from parts 1--3 and the \Matlab\ Examples, measure the number of pixels to your tick-marks relative to the center of the image and create a table of values for the $x$ and $y$ directions for each distance. Using this table, investigate the scaling in $x$ and $y$ for each of your distances.
+Using the tools from parts 1--3, create a test script that will display an image and allow the user to manually align the crosshair with the center of the image. Once aligned, the script should capture a static image and allow the user to measure the $x$ and $y$ pixel location of each tick-mark relative to the image coordinate frame in the upper left of the image. 
 
-\clearpage
+Using this data, and the known location of each tick mark in linear units (which you will need to manually record), create a table consisting of the $x$ and $y$ values of each point on the crosshair in both linear units (referenced to the center of the crosshair) and in pixels (referenced to the upper left of the image). For each point, you should also record a distance value $s$ in linear units.
+
+Using this table with data collected from at least three distances, use \Matlab's fitting tools to solve for the constants $a$, $b$, $c$, and $d$ given in \fref{eq:1} and \fref{eq:2}.
+
+
 \section{Packaging your calibration function}
 Once you have defined the relationship between pixels and linear units, package your equations in a \Matlab\ function for later use. The inputs to this function should be $s$, $x_{pixels}$, and $y_{pixels}$; and the outputs to this function should be $x_{linearUnits}$ and $y_{linearUnits}$. Be sure to use a descriptive function name, and document your function! As an example, if all of your linear units are in centimeters, you may want to define your function as follows:
 \begin{lstlisting}[style=usnaMatlab]
 function [x_cm,y_cm] = pixelsToCentimeters(s_centimeters,x_pixels,y_pixels)
 \end{lstlisting}
 
+\clearpage
 \section{Documenting your calibration function}
 Take the time to write help documentation for your function. This will be a long semester, and it is easy to forget how to use even code that you have written. The commonly used format for \Matlab\ \lstinline{help} documentation is to include docstrings in a comment at the start of the function as follows:
 \begin{lstlisting}[style=usnaMatlab]
