@@ -1,0 +1,187 @@
+\documentclass[10pt]{article}
+
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{breakurl}
+\usepackage{listings}
+\lstset{%
+	basicstyle=\ttfamily
+	%commentstyle=\color{red},
+	%keywordstyle=\color{blue},
+	%identifierstyle=\color{blue}
+	}
+\usepackage[plain]{fancyref}
+\renewcommand{\LaTeX}{Latex}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\newcommand{\Matlab}{Matlab}
+
+\title{EW309 Introduction to \LaTeX: Adding figures to a \LaTeX\ document}
+\author{EW309 staff}
+\date{\today}
+
+\begin{document}
+\maketitle 
+
+\begin{abstract}
+Part 3 summarizes how to incorporate figures into your document. 
+\end{abstract}
+
+\section{Requirements}
+The remainder of this document assumes:
+\begin{enumerate}
+\item Use of a computer connected to the internet
+\item Completion of Part 1 – Intro to \LaTeX
+\item Completion of Part 2 – Citations in \LaTeX
+\end{enumerate}
+
+
+
+
+
+\section{Open your EW309 final report and add a figure to the project}
+At this point you should be familiar with how to enter text, math equations, and references in \LaTeX. Open your project source code in Overleaf:
+\begin{enumerate}
+\item Login to your Overleaf account (\url{https://www.overleaf.com})
+\item Open your project for the EW309 final report
+\item Navigate to the computer vision section of your source code.
+\item If you haven’t done so already, save one of your \Matlab\ figures as a \lstinline{.png} file\footnote{\LaTeX\ can handle many different image file formats beyond just \lstinline{.png}, even some that your Windows machine doesn't recognize. We'll use \lstinline{.png} in this tutorial as a reference.}. If you have one already, move on to the next step.
+\item Upload the image to your Overleaf project. The upload button is located in the top left corner of Overleaf, shown in \fref{fig:1}. Follow the instructions to upload the image.
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics{fig31.png}
+\end{center}
+  \caption{The upload button is in the top left corner of Overleaf.}
+  \label{fig:1}
+\end{figure}
+
+
+
+
+
+
+\section{The \lstinline{figure} Environment}
+Part 1 showed that \LaTeX\ separates portions of a document into \textbf{environments} and compiles environments differently based on their type. In part 1 you wrote some sample code in the \lstinline{equation} environment and the \emph{inline} equation environment (e.g. \lstinline{$1+1=2$}) and found that \LaTeX\ compiled the text in those environments into an eye-pleasing mathematical form. Similarly, figures are handled in the \lstinline{figure} environment. By placing code within the \lstinline{figure} environment, the \LaTeX\ compiler knows it should format the code within to be a nice looking figure. To begin, let’s create a new \lstinline{figure} environment in your document:
+\begin{enumerate}
+\item Somewhere within the computer vision section of your code, create a figure by adding the lines
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \begin{figure}
+    \end{figure}
+  \end{lstlisting}
+  
+\item You may have noticed as you typed those lines that Overleaf tried to (or may have) autocompleted the remaining text for you. For now, delete any code Overleaf may have added. We’ll add the lines individually so you understand what they do.
+\end{enumerate}
+  
+That is all there is to creating the figure \lstinline{environment} in your document. The important thing to note is that \LaTeX\ keeps track of all the figure environments in your document and numbers them accordingly. This means no more having to go back and renumber figures in your document!
+
+There are a number of options for the figure environment that dictate where the figure will appear in your document. Generally speaking, \LaTeX\ tries to place the image near the text where the \lstinline{figure} environment is established. However, you can add extra options so \LaTeX\ is a bit more specific about where the figure can appear. For example, using the \lstinline{[h]} option
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+  \begin{figure}[h]
+  \end{figure}
+\end{lstlisting}
+  
+\LaTeX\ tries to place the figure \textbf{here}. Similarly, you can use \lstinline{[t]} to ensure the figure is at the \textbf{top} of the page, or \lstinline{[b]} for \textbf{bottom}. You can also use combinations of these designators if the situation calls for it (e.g. \lstinline{[ht]} for \textbf{here or top})
+
+
+
+
+\section{Include the figure in your document and specify figure properties}
+After creating a \lstinline{figure} environment, you now need to populate code within the \lstinline{figure} environment so the compiler knows (a) what image it should use in the \lstinline{figure}, (b) what the \lstinline{caption} should read, (c) the justification and size of the figure, and (d) what \lstinline{label} the figure should have when referenced in the main text (similar to equations, see Part 1).
+\begin{enumerate}
+\item To include graphics, you must include the \lstinline{graphicx} package. If it is not already present, add the following at the top of your \lstinline{.tex} file in the preamble:
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \include{graphicx} % include graphicx package to use \includegraphics
+  \end{lstlisting}
+  
+\item Specify what image \LaTeX\ should load into the figure by using the \lstinline$\includegraphics{}$ function. You can find more information about it by following the link in the footnote\footnote{\url{https://www.overleaf.com/learn/latex/Inserting_Images}}. Suppose your image file was named \lstinline{blobs.png}. Within the \lstinline{figure} environment (i.e. between the \lstinline$\begin{figure}$ and \lstinline$\end{figure}$, load your image into the figure using the following basic syntax:
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \includegraphics{blobs}
+  \end{lstlisting}
+  
+\item After including the graphic, add a caption to the figure using:
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \caption{Here is where your caption text goes!}
+  \end{lstlisting}
+  
+\item Before the \lstinline{\includegraphics} command and after \lstinline$\begin{figure}$, center the image in the middle of the page by placing it within
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \begin{center}
+      % includgraphics goes here
+    \end{center}
+  \end{lstlisting}
+  
+\item After the caption, give the figure a label so you can refer back to it in your prose.
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \label{testfigure}
+  \end{lstlisting}
+  
+\item Recompile your document.
+
+  You'll notice that the figure might appear needlessly large. It would be nice to be able to control the size of image. The \lstinline$\includegraphics{}$ command provides many options to control the size of the figure. Here are a few common options:
+  \begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+    \includegraphics[width=3in]{blobs} %width will be 3 in
+    
+    \includegraphics[width=0.25\textwidth]{blobs}
+    %width will be one quarter of the page width
+
+    \includegraphics[width=3in, height=4cm]{blobs}
+    %width of the figure will be 3 inches, height will be 4 cm.
+    %Be careful, this may distort your figure
+  \end{lstlisting}
+
+\item Try resizing the \lstinline{figure} in your document so that its width is one half the \lstinline{\textwidth} of the page. Add an appropriate \lstinline{caption} and \lstinline{label} to the figure.
+\end{enumerate}
+  
+  
+\section{Cropping figures}
+In some instances it is necessary to trim the edges of the image. We recommend doing this with a proper graphics editing program like Photoshop, Gimp, Illustrator, or Inkscape. However, this can also be done within a call to \lstinline$\includgraphics$ using the \lstinline{trim} option as follows:
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+\includegraphics[width=.95\linewidth,clip=true, trim=1in 0.5in 0.8in 1.2in]{blobs.png}
+\end{lstlisting}
+
+In this usage, \LaTeX\ will trim \SI{1}{in} off the left side of the image, \SI{0.5}{in} off the bottom of the image, \SI{0.8}{in} off the right, and \SI{1.2}{in} off the top.
+
+
+
+\clearpage
+\section{Subfigures}
+When formatting for a publication, you will usually prepare subfigures using a proper graphics editing program (Illustrator or Inkscape) to place images and figures in the right places and add required subfigure labels such as A, B, C. The composite figure is then insert as described above. When doing this, we recommend you save the necessary files to recreate each subfigure, should you ever need to reformat or alter the figure.  
+
+It is also possible to add multiple images into a single \lstinline{figure} environment. In this way, \LaTeX\ can make subfigures that are tiled in whatever (plausible) configuration you desire\footnote{This method may break templates or formatting guidelines for specific publications}. Note, you'll want to include two new packages in your preamble that make subfigures easier\footnote{\burl{https://www.overleaf.com/learn/latex How_to_Write_a_Thesis_in_LaTeX_(Part_3):_Figures,_Subfigures_and_Tables\#Subfigures}}.
+\begin{lstlisting}
+\usepackage{caption}
+\usepackage{subcaption}
+\end{lstlisting}
+
+After doing so, the basic syntax to create a figure with three subfigures is provided on the following page. At this point most of the commands should look familiar. For any that are unfamiliar, Google them to learn more.
+\begin{lstlisting}[basicstyle=\ttfamily\footnotesize]
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{graph1}
+      \caption{$y=x$}
+      \label{fig:y equals x}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{graph2}
+      \caption{$y=3sinx$}
+      \label{fig:three sin x}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{graph3}
+      \caption{$y=5/x$}
+      \label{fig:five over x}
+    \end{subfigure}
+    \caption{Three simple graphs}
+    \label{fig:three graphs}
+  \end{figure}
+  \end{lstlisting}
+
+\end{document}
+    
