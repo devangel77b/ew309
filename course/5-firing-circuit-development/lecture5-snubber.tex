@@ -1,0 +1,72 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Overview of snubber circuits}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{J McGillick, USNA 2017}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{What are snubber circuits?}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Protect the switch from inductive element
+\item Can consist of multiple materials
+\item Used to direct current from inductor in safe direction
+\end{itemize}
+See also \href{https://www.youtube.com/watch?v=LXGtE3X2k7Y}{video explanation}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l5-f2.png}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why do we need one?}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item DC motors consist of windings to make it work
+\item Inductors oppose changes in current
+\item DC motors will not allow for sudden change in current when shut off
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=\columnwidth]{\myroot/figures/l5-f3.png}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{What are we using?}
+\begin{itemize}
+\item Diode allows current to flow through it
+\item Resistor dissipates power
+\item Motor does not burn out MOSFET
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.5\columnwidth]{\myroot/figures/l5-f4.png}
+\end{center}
+\end{frame}
+
+\end{document}
