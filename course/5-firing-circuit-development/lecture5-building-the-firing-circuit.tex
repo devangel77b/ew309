@@ -1,0 +1,101 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Building the firing circuit}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{The what and why of it}
+In EW202, you used the mbed processor as a decision maker. So can we do this tom ake our Nerf motors spin when we want?
+\begin{center}
+graphics here
+\end{center}
+Just use a \lstinline{DigitalOut} line to turn on our motors, right? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Let's think about it another way}
+What if $R_a=\SI{5}{\ohm}$? Replacing the DC motor with its schematic, at stall $\omega=0$, $i_a=\SI{0.66}{\ampere}$. 
+\end{frame}
+
+\begin{frame}
+\frametitle{From the mbed datasheet}
+\begin{itemize}
+\item Current limited to \SI{500}{\milli\ampere}
+\item Digital IO pins are \SI{3.3}{\volt}, \SI{4}{\milli\ampere} each; \SI{400}{\milli\ampere} total
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{So we need something else...}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is this ``something''?}
+\end{frame}
+
+\begin{frame}
+\frametitle{Option 1: Relay (electromechanical)}
+\end{frame}
+
+\begin{frame}
+\frametitle{Option 2: Metal oxide semiconductor field-effect transistor ({MOSFET})}
+\end{frame}
+
+\begin{frame}
+\frametitle{Relay vs {MOSFET}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Relay vs {MOSFET} implementation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Circuit implementation}
+\end{frame}
+
+\begin{frame}
+% use sequential build here? 
+\frametitle{Relay vs {MOSFET} implementation for testing}
+\end{frame}
+
+\begin{frame}
+\frametitle{{MOSFET} circuit implementation}
+\framesubtitle{Unidirectional motor driver}
+\end{frame}
+
+\begin{frame}
+% Use sequential build here? 
+\frametitle{{MOSFET} circuit implementation}
+\framesubtitle{Unidirectional motor driver}
+\end{frame}
+
+\begin{frame}
+\frametitle{Your task...}
+\begin{enumerate}
+\item Select the circuit you want to drive your Nerf motors.
+\item Look at the datasheet for your selection and verify that all components work with the voltage and current requirements for your motor.
+\item Get a breadboard from your instructor.
+\item Build \emph{two} (one for each motor) of the firing circuits on the protoboard using the manual switches and external power supply. \textbf{Do not connect your mbed just yet.}
+\item Verify that you have established \textbf{a common ground}.
+\item Be sure to document all your steps.  You will have write these up for your next assignment and in your final report.
+\end{enumerate}
+\end{frame}
+
+\end{document}
