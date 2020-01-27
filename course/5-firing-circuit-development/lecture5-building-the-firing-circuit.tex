@@ -48,22 +48,63 @@ What if $R_a=\SI{5}{\ohm}$? Replacing the DC motor with its schematic, at stall 
 
 \begin{frame}
 \frametitle{What is this ``something''?}
+\begin{itemize}
+\item What are its \emph{functions}, i.e. what does it need to do?
+\item This ``something'' must be able to do the following (functional requirements):
+\begin{itemize}
+\item Controlled by a digital IO line (\SIrange{0}{3.3}{\volt})
+\item Draw no more than \si{\milli\ampere} on the mbed side
+\item Supply on the order of \si{\ampere} on the motor side
+\end{itemize}
+\item Now, what options do we have? 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Option 1: Relay (electromechanical)}
+A relay is an electrically operated switch that uses an electromagnet to mechnically throw a switch to open and close circuits. 
 \end{frame}
 
 \begin{frame}
 \frametitle{Option 2: Metal oxide semiconductor field-effect transistor ({MOSFET})}
+A MOSFET is a type of transistor that can be used as a \emph{solid state} switch, to switch electronic signals. 
 \end{frame}
 
 \begin{frame}
 \frametitle{Relay vs {MOSFET}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Electromechnical relay
+\begin{itemize}
+\item Relatively slow switching frequency (too slow for speed control or dimmable lights)
+\item Noisy when switching
+\item Lifetime number of on/off cycles is limited by mechanical wear
+\item \emph{Seemingly} simple to implement; it's basically an electronic switch
+\item Commonly used in telecommunications, can be used to switch AC line voltages
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+$n$-channel MOSFET
+\begin{itemize}
+\item High switching frequency, can implement PWM from mbed
+\item Low noise
+\item Scary data sheet (maybe?), must utilize additional circuitry?
+\item Commonly used in DC applications like motor control
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Relay vs {MOSFET} implementation}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Electromechanical relay
+\end{column}
+\begin{column}{0.5\textwidth}
+$n$-channel MOSFET
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -73,17 +114,27 @@ What if $R_a=\SI{5}{\ohm}$? Replacing the DC motor with its schematic, at stall 
 \begin{frame}
 % use sequential build here? 
 \frametitle{Relay vs {MOSFET} implementation for testing}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Electromechanical relay
+\end{column}
+\begin{column}{0.5\textwidth}
+$n$-channel MOSFET
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{{MOSFET} circuit implementation}
 \framesubtitle{Unidirectional motor driver}
+Now let's discuss the circuit operation. The switch is shut and the MOSFET conncts the drain to source through a very small (i.e., short) resistance (\si{\milli\ohm}). 
 \end{frame}
 
 \begin{frame}
 % Use sequential build here? 
 \frametitle{{MOSFET} circuit implementation}
 \framesubtitle{Unidirectional motor driver}
+Now the switch is opened. What happens? 
 \end{frame}
 
 \begin{frame}
