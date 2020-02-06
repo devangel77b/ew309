@@ -52,7 +52,7 @@ What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one
 \begin{choices}
 \choice Prevent current from flowing back into an mBed
 \choice Look nice in your firing circuit
-\CorrectChoice Supply on the order of \si{\ampere} to a motor while only drawing \si{\milli\ampere}
+\CorrectChoice Supply current on the order of \si{\ampere} to power a motor, while only drawing \si{\milli\ampere} from a control input
 \choice Allow bidirectional control of a motor using logic level PWM and a direction pin
 \end{choices}
 
@@ -62,7 +62,7 @@ What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one
 
 \clearpage
 \question
-What is the maximum output current rating for the component shown in \fref{fig:MOSFET} (circle {\bf one})?
+What is the absolute maximum output current rating for the component shown in \fref{fig:MOSFET} (circle {\bf one})?
 \begin{choices}
 \choice \SI{50}{\milli\ampere}
 \choice \SI{10.0}{\ampere}
@@ -122,17 +122,17 @@ Why did we implement switches (or a test wire) into the firing circuit prior to 
 
 
 
+
+%\question
+%For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
+%\begin{solution}[3in]
+%The expectation $E(x) = 0.75\times 100 = 75$ shots. 
+%\end{solution}
+
+
+
+
 \clearpage
-\question
-For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
-\begin{solution}[3in]
-The expectation $E(x) = 0.75\times 100 = 75$ shots. 
-\end{solution}
-
-
-
-
-
 \question
 What is the purpose of the circled component in \fref{fig:PullDownResistor}?
 \begin{figure}[h]
@@ -144,11 +144,11 @@ What is the purpose of the circled component in \fref{fig:PullDownResistor}?
 \begin{solution}[3in]
 The circled component is a pulldown resistor, it ensures the MOSFET turns off when nothing else is connected to the gate. 
 \end{solution}
+% Sp2020: Mike is asking to make this multiple choice
 
 
 
 
-\clearpage
 \question
 What type of camera are we using for the computer vision subsystem of our project?
 \begin{choices}
@@ -160,27 +160,27 @@ What type of camera are we using for the computer vision subsystem of our projec
 
 
 
-
-%\question
-%What will happen when you close the switch shown in %\fref{fig:ShortedFiringCircuit} (circle all that apply)?
-%\begin{figure}[h]
-%\centering
-%	\includegraphics[width=4.0in]{ShortedFiringCircuit.png}
-%	\caption{Single MOSFET-based firing circuit with a %shorted-pulldown.}
-%	\label{fig:ShortedFiringCircuit}
-%\end{figure}
-%\begin{choices}
-%\choice The motor will spin faster than normal
-%\CorrectChoice The motor will not spin at all
-%\choice The switch and connected wires may get warm or even hot
-%\choice The motor will spin slower than normal 
-%\end{choices}
+\clearpage
+\question
+What will happen when you close the switch shown in \fref{fig:ShortedFiringCircuit} (circle all that apply)?
+\begin{figure}[h]
+\centering
+	\includegraphics[width=4.0in]{ShortedFiringCircuit.png}
+	\caption{Single MOSFET-based firing circuit with a shorted pulldown.}
+	\label{fig:ShortedFiringCircuit}
+\end{figure}
+\begin{choices}
+\choice The motor will spin faster than normal
+\CorrectChoice The motor will not spin at all
+\choice The switch and connected wires may get warm or even hot
+\choice The motor will spin slower than normal 
+\end{choices}
 
 
 
 
 \question
-Explain briefly (2-3 sentences) the types of filters you used in the computer vision section of the project to only identify targets that you specified. You may include a diagram too if you wish. 
+Explain briefly (2-3 sentences) how you processed your images in \Matlab. 
 \begin{solution}[3in]
 \end{solution}
 
