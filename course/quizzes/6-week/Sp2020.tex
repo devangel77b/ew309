@@ -1,4 +1,4 @@
-\documentclass{exam}
+\documentclass[addpoints,answers]{exam}
 
 \newcommand{\myroot}{../../..}
 \usepackage[quiz]{\myroot/course}
@@ -14,12 +14,12 @@
 \question
 A good problem statement for your automated turret system would accomplish all the following {\bf except} (circle all that apply):
 \begin{choices}
-\choice Allow for design trade space and open-ended solutions
+\CorrectChoice Allow for design trade space and open-ended solutions
 \choice Ensure the design looks exactly like the ones from the previous year  
-\choice Include any constraints or clarifying data that scope the problem
+\CorrectChoice Include any constraints or clarifying data that scope the problem
 \choice Dictate the type of control algorithm required at the start of the project
-\choice Clarify both what the design will and won't do 
-\choice Consider any external interactions and influences that could affect the design
+\CorrectChoice Clarify both what the design will and won't do 
+\CorrectChoice Consider any external interactions and influences that could affect the design
 \choice Be very generic such that the objectives and design goals could be anything!
 \end{choices}
 
@@ -30,10 +30,10 @@ A good problem statement for your automated turret system would accomplish all t
 \question
 The purpose of presenting thorough background research in an engineering report or publication is to (circle {\bf all} that apply):
 \begin{choices}
-\choice Demonstrate an understanding of the field
+\CorrectChoice Demonstrate an understanding of the field
 \choice Increase the length of the document 
-\choice Convince the reader that you are not repeating an existing and fully documented project
-\choice Justify the contribution by comparing it to existing projects
+\CorrectChoice Convince the reader that you are not repeating an existing and fully documented project
+\CorrectChoice Justify the contribution by comparing it to existing projects
 \choice Background research serves no real purpose
 \end{choices}
 
@@ -52,7 +52,7 @@ What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one
 \begin{choices}
 \choice Prevent current from flowing back into an mBed
 \choice Look nice in your firing circuit
-\choice Supply on the order of A to a motor while only drawing mA
+\CorrectChoice Supply on the order of \si{\ampere} to a motor while only drawing \si{\milli\ampere}
 \choice Allow bidirectional control of a motor using logic level PWM and a direction pin
 \end{choices}
 
@@ -64,9 +64,9 @@ What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one
 \question
 What is the maximum output current rating for the component shown in \fref{fig:MOSFET} (circle {\bf one})?
 \begin{choices}
-\choice 50 mA
-\choice 10.0 A
-\choice 50.0 A
+\choice \SI{50}{\milli\ampere}
+\choice \SI{10.0}{\ampere}
+\CorrectChoice \SI{50.0}{\ampere}
 \choice I have no clue how to read a datasheet
 \end{choices}
 
@@ -84,10 +84,10 @@ What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf 
 	\label{fig:pulldown}
 \end{figure}
 \begin{choices}
-\choice Ensures the voltage at the gate is set to 0V when the circuit is closed
+\choice Ensures the voltage at the gate is set to \SI{0}{\volt} when the circuit is closed
 \choice Provide an adjustable, regulated voltage output  
 \choice Look nice in your firing circuit
-\choice Allow a forward path for the inductive motor current to flow when the circuit is opened
+\CorrectChoice Allow a forward path for the inductive motor current to flow when the circuit is opened
 \end{choices}
 
 
@@ -97,12 +97,11 @@ What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf 
 
 %\question
 %What is the acceptable output voltage range for the component shown in Fig.~\ref{fig:TD340} (circle one)?
-
 %\begin{choices}
-%\choice 5.0Vdc to 24.0Vdc
-%\choice 8.0Vdc to 16.0Vdc
-%\choice 6.5Vdc to 18.5Vdc
-%\choice 0.0Vdc to 5.0Vdc
+%\choice \SIrange{5.0}{24.0}{\volt}
+%\choice \SIrange{8.0}{16.0}{\volt}
+%\choice \SIrange{6.5}{18.5}{\volt}
+%\choice \SIrange{0.0}{5.0}{\volt}
 %\end{choices}
 
 
@@ -111,12 +110,12 @@ What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf 
 
 
 \question
-Why did we implement switches into the firing circuit prior to implementing the Mbed (circle {\bf all} that apply)?
+Why did we implement switches (or a test wire) into the firing circuit prior to implementing the mbed (circle {\bf all} that apply)?
 \begin{choices}
-\choice To test a simplified version of the circuit prior to implementing a microcontroller
+\CorrectChoice To test a simplified version of the circuit prior to implementing a microcontroller
 \choice To inject a gratuitous discussion of switches into the course
-\choice To confirm proper circuit wiring prior to implementing a microcontroller
-\choice To avoid burning out mbed I/O pins with improper circuit implementations
+\CorrectChoice To confirm proper circuit wiring prior to implementing a microcontroller
+\CorrectChoice To avoid burning out mbed I/O pins with improper circuit implementations
 \end{choices}
 
 
@@ -125,21 +124,26 @@ Why did we implement switches into the firing circuit prior to implementing the 
 
 \clearpage
 \question
-(Short Answer) For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
+For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
+\begin{solution}[3in]
+The expectation $E(x) = 0.75\times 100 = 75$ shots. 
+\end{solution}
 
 
 
 
 
 \question
-(Short Answer) What is the purpose of the circled component in \fref{fig:PullDownResistor}?
+What is the purpose of the circled component in \fref{fig:PullDownResistor}?
 \begin{figure}[h]
 \centering
 	\includegraphics[width=2.5in]{PullDownResistor.png}
 	\caption{Single MOSFET-based firing circuit with highlighted component.}
 	\label{fig:PullDownResistor}
 \end{figure}
-
+\begin{solution}[3in]
+The circled component is a pulldown resistor, it ensures the MOSFET turns off when nothing else is connected to the gate. 
+\end{solution}
 
 
 
@@ -149,7 +153,7 @@ Why did we implement switches into the firing circuit prior to implementing the 
 What type of camera are we using for the computer vision subsystem of our project?
 \begin{choices}
 \choice HD 720P 1.0MP Wide Angle Mini USB CCTV Camera
-\choice iCubie USB wecam
+\CorrectChoice iCubie USB wecam
 \choice OV2710 high resolution micro USB camera
 \choice There is a camera in this project?
 \end{choices}
@@ -167,7 +171,7 @@ What type of camera are we using for the computer vision subsystem of our projec
 %\end{figure}
 %\begin{choices}
 %\choice The motor will spin faster than normal
-%\choice The motor will not spin at all
+%\CorrectChoice The motor will not spin at all
 %\choice The switch and connected wires may get warm or even hot
 %\choice The motor will spin slower than normal 
 %\end{choices}
@@ -176,6 +180,9 @@ What type of camera are we using for the computer vision subsystem of our projec
 
 
 \question
-Explain BRIEFLY (2-3 sentences) the types of filters you used in the computer vision section of the project to only identify targets that you specified.
+Explain briefly (2-3 sentences) the types of filters you used in the computer vision section of the project to only identify targets that you specified. You may include a diagram too if you wish. 
+\begin{solution}[3in]
+\end{solution}
+
 \end{questions}
 \end{document}
