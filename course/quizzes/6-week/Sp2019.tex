@@ -1,0 +1,343 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphics}	% for pdf, bitmapped graphics files
+\usepackage{graphicx} % Required to insert images
+\usepackage{float} % enables [H] to force figure placement
+\usepackage{amsmath}	% assumes amsmath package installed
+\usepackage{amssymb}	% assumes amsmath package installed
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{enumerate}
+%\usepackage{mcode}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+%\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\hmwkClass\ \hmwkTitle, Due: \hmwkDueDate} % Top center header
+%\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{6-Week\ Quiz} % Assignment title
+\newcommand{\hmwkDueDate}{February\ 13,\ 2020} % Due date
+%\newcommand{\hmwkClass}{BIO\ 101} % Course/class
+\newcommand{\hmwkClass}{EW309} % Course/class
+%\newcommand{\hmwkClassTime}{10:30am} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Severson} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Name:} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+%
+%\title{
+%\vspace{2in}
+%\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+%\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+%\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+%\vspace{3in}
+%}
+%
+%\author{\textbf{\hmwkAuthorName}}
+%\date{} % Insert date here if you want it to appear below your name
+%
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+%\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 1] % \#\arabic{homeworkProblemCounter}]
+A good problem statement for your automated turret system would accomplish the following (circle {\bf all} that apply):
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item Allow for design trade space and open-ended solutions
+\item Ensure the design looks exactly like the ones from the previous year  
+\item Include any constraints or clarifying data that scope the problem
+\item Dictate the type of control algorithm required at the start of the project
+\item Clarify both what the design will and won't do 
+\item Consider any external interactions and influences that could affect the design
+\item Be very generic such that the objectives and design goals could be anything!
+\end{enumerate}
+
+%\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 2] % \#\arabic{homeworkProblemCounter}]
+The purpose of presenting thorough background research in an engineering report or publication is to (circle {\bf all} that apply):
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item Justify the contribution by comparing it to existing projects
+\item Increase the length of the document 
+\item Convince the reader that you are not ``reinventing the wheel'' (i.e. repeating an existing and fully documented project)
+\item Demonstrate a understanding of the field
+\item Background research serves no real purpose
+\end{enumerate}
+
+%\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 3] % \#\arabic{homeworkProblemCounter}]
+What is the purpose of the component shown in Fig.~\ref{fig:REG3ASW} (circle {\bf one})?
+\begin{figure}[H]
+\centering
+	\includegraphics[width=2.0in]{MOSFET.jpg}
+	\caption{50N06 MOSFET}
+	\label{fig:REG3ASW}
+\end{figure}
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item Allow bidirectional control of a motor using logic level PWM and a direction pin
+\item Supply on the order of A to a motor while only drawing mA  
+\item Look nice in your firing circuit
+\item Prevent current from flowing back into an mBed
+\end{enumerate}
+
+\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 4] % \#\arabic{homeworkProblemCounter}]
+What is the maximum output current rating for the component shown in Fig.~\ref{fig:REG3ASW} (circle {\bf one})?
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item 500 mA
+\item 1.0 A
+\item 50.0 A
+\item I have no clue how to read a datasheet
+\end{enumerate}
+
+\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 5] % \#\arabic{homeworkProblemCounter}]
+What is the purpose of the components shown in Fig.~\ref{fig:Snubber} (circle {\bf one})?
+\begin{figure}[H]
+\centering
+	\includegraphics[width=2.3in]{Snubber_Circuit.jpg}
+	\caption{Manual Firing Circuit with important components highlighted and circled in red.}
+	\label{fig:Snubber}
+\end{figure}
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item Ensures the voltage at the gate is set to 0V when the circuit is closed
+\item Provide an adjustable, regulated voltage output  
+\item Look nice in your firing circuit
+\item Allow a path for the inductive motor current to flow when the circuit is opened
+\end{enumerate}
+
+\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{homeworkProblem}[Question 6] % %\#\arabic{homeworkProblemCounter}]
+%What is the acceptable output voltage range for the component shown in Fig.~\ref{fig:TD340} (circle one)?
+
+%\begin{enumerate}[(a)] % (a), (b), (c), ...
+%\item 5.0Vdc to 24.0Vdc
+%\item 8.0Vdc to 16.0Vdc
+%\item 6.5Vdc to 18.5Vdc
+%\item 0.0Vdc to 5.0Vdc
+%\end{enumerate}
+
+%\vfill
+
+%\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 6] % \#\arabic{homeworkProblemCounter}]
+Why did we implement switches into the firing circuit prior to implementing the mbed (circle {\bf all} that apply)?
+
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item To test a simplified version of the circuit prior to implementing a microcontroller
+\item To inject a gratuitous discussion of switches into the course
+\item To confirm proper circuit wiring prior to implementing a microcontroller
+\item To avoid burning out mbed I/O pins with improper circuit implementations
+\end{enumerate}
+
+\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 7] % \#\arabic{homeworkProblemCounter}]
+(Short Answer) What is the purpose of the circled component in Fig.~\ref{fig:PullDownResistor}?
+\begin{figure}[H]
+\centering
+	\includegraphics[width=2.5in]{PullDownResistor.png}
+	\caption{Single MOSFET-based firing circuit with highlighted component.}
+	\label{fig:PullDownResistor}
+\end{figure}
+
+\vfill
+\newpage
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 8] % \#\arabic{homeworkProblemCounter}]
+What type of camera are we using for the computer vision subsystem of our project?
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item HD 720P 1.0MP Wide Angle Mini USB CCTV Camera
+\item iCubie USB wecam
+\item OV2710 high resolution micro USB camera
+\item There is a camera in this project?
+\end{enumerate}
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 9] % %\#\arabic{homeworkProblemCounter}]
+What will happen when you close the switch shown in %Fig.~\ref{fig:ShortedFiringCircuit} (circle all that apply)?
+\begin{figure}[H]
+\centering
+	\includegraphics[width=4.0in]{ShortedFiringCircuit.png}
+	\caption{Single MOSFET-based firing circuit with a shorted-pulldown.}
+	\label{fig:ShortedFiringCircuit}
+\end{figure}
+%
+\begin{enumerate}[(a)] % (a), (b), (c), ...
+\item The motor will spin faster than normal
+\item The motor will not spin at all
+\item The switch and connected wires may get warm or even hot
+\item The motor will spin slower than normal 
+\end{enumerate}
+
+\vfill
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Question 10] % \#\arabic{homeworkProblemCounter}]
+Explain BRIEFLY (2-3 sentences) how you processed your images in MATALB
+
+
+\vspace*{\fill}
+\vspace*{\fill}
+\vspace*{\fill}
+
+\end{homeworkProblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
