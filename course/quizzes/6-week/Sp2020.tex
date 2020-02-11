@@ -5,14 +5,15 @@
 
 \title{6-week Quiz}
 \author{\usnaInstructorShort}
-\date{\today}
+\date{\printdate{2/12/2020}}
 
 \begin{document}
 \maketitle
 
+
 \begin{questions}
-\question
-A good problem statement for your automated turret system would accomplish all the following {\bf except} (circle all that apply):
+\question[1]
+A good problem statement for your automated turret system would accomplish the following (circle {\bf all} that apply):
 \begin{choices}
 \CorrectChoice Allow for design trade space and open-ended solutions
 \choice Ensure the design looks exactly like the ones from the previous year  
@@ -27,33 +28,40 @@ A good problem statement for your automated turret system would accomplish all t
 
 
 
-\question
+
+
+\question[1]
 The purpose of presenting thorough background research in an engineering report or publication is to (circle {\bf all} that apply):
 \begin{choices}
-\CorrectChoice Demonstrate an understanding of the field
-\choice Increase the length of the document 
-\CorrectChoice Convince the reader that you are not repeating an existing and fully documented project
 \CorrectChoice Justify the contribution by comparing it to existing projects
+\choice Increase the length of the document 
+\CorrectChoice Convince the reader that you are not ``reinventing the wheel'' (i.e. repeating an existing and fully documented project)
+\CorrectChoice Demonstrate a understanding of the field
 \choice Background research serves no real purpose
 \end{choices}
 
 
 
 
-\question
-What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one})?
+
+
+
+
+
+
+\question[1]\label{q:3}
+What is the purpose of the component shown in \fref{fig:REG3ASW} (circle {\bf one})?
 \begin{figure}[h]
 \centering
-	\includegraphics[width=2.0in]{MOSFET.jpg}
-	\caption{50N06 MOSFET}
-	\label{fig:MOSFET}
+	\includegraphics[width=1.5in]{MOSFET.jpg}
+	\caption{50N06 MOSFET for Question~\ref{q:3}}
+	\label{fig:REG3ASW}
 \end{figure}
-
 \begin{choices}
-\choice Prevent current from flowing back into an mBed
-\choice Look nice in your firing circuit
-\CorrectChoice Supply current on the order of \si{\ampere} to power a motor, while only drawing \si{\milli\ampere} from a control input
 \choice Allow bidirectional control of a motor using logic level PWM and a direction pin
+\CorrectChoice Acts as a switch and provides the required current ($\sim\si{\ampere}$) to power to our motors without over-drawing control inputs ($\sim\si{\milli\ampere}$)
+\choice Look nice in your firing circuit
+\choice Prevent current from flowing back into an mbed
 \end{choices}
 
 
@@ -61,33 +69,19 @@ What is the purpose of the component shown in \fref{fig:MOSFET} (circle {\bf one
 
 
 \clearpage
-\question
-What is the absolute maximum output current rating for the component shown in \fref{fig:MOSFET} (circle {\bf one})?
-\begin{choices}
-\choice \SI{50}{\milli\ampere}
-\choice \SI{10.0}{\ampere}
-\CorrectChoice \SI{50.0}{\ampere}
-\choice I have no clue how to read a datasheet
-\end{choices}
-
-
-
-
-
-
-\question
-What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf one})?
+\question[1]\label{q:4}
+What is the purpose of the components marked in \fref{fig:Snubber} (circle {\bf one})?
 \begin{figure}[h]
 \centering
-	\includegraphics[width=2.3in]{Picture4.jpg}
-	\caption{Manual Firing Circuit with important components highlighted and circled in red.}
-	\label{fig:pulldown}
+	\includegraphics[width=2.3in]{Snubber_Circuit.jpg}
+	\caption{Firing circuit (with button for manual testing) with important components highlighted and circled in red for Question~\ref{q:4}.}
+	\label{fig:Snubber}
 \end{figure}
 \begin{choices}
 \choice Ensures the voltage at the gate is set to \SI{0}{\volt} when the circuit is closed
 \choice Provide an adjustable, regulated voltage output  
 \choice Look nice in your firing circuit
-\CorrectChoice Allow a forward path for the inductive motor current to flow when the circuit is opened
+\CorrectChoice Allow a path for the inductive motor current to flow when the circuit is opened
 \end{choices}
 
 
@@ -95,12 +89,13 @@ What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf 
 
 
 
-%\question
-%What is the acceptable output voltage range for the component shown in Fig.~\ref{fig:TD340} (circle one)?
+
+%\question[1]
+%What is the acceptable output voltage range for the component shown in\fref{fig:TD340} (circle one)?
 %\begin{choices}
 %\choice \SIrange{5.0}{24.0}{\volt}
 %\choice \SIrange{8.0}{16.0}{\volt}
-%\choice \SIrange{6.5}{18.5}{\volt}
+%\CorrectChoice \SIrange{6.5}{18.5}{\volt}
 %\choice \SIrange{0.0}{5.0}{\volt}
 %\end{choices}
 
@@ -109,7 +104,8 @@ What is the purpose of the components shown in \fref{fig:pulldown} (circle {\bf 
 
 
 
-\question
+
+\question[1]
 Why did we implement switches (or a test wire) into the firing circuit prior to implementing the mbed (circle {\bf all} that apply)?
 \begin{choices}
 \CorrectChoice To test a simplified version of the circuit prior to implementing a microcontroller
@@ -123,33 +119,33 @@ Why did we implement switches (or a test wire) into the firing circuit prior to 
 
 
 
-%\question
-%For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
-%\begin{solution}[3in]
-%The expectation $E(x) = 0.75\times 100 = 75$ shots. 
-%\end{solution}
+\question[1]\label{q:6}
+Circle the \textbf{pulldown resistor} in \fref{fig:FiringCircuitPulldown}.
+\begin{figure}[h]
+\centering
+	\includegraphics[width=4.0in]{FiringCircuit.png}
+	\caption{Single MOSFET-based firing circuit for Question~\ref{q:6}.}
+	\label{fig:FiringCircuitPulldown}
+\end{figure}
+
 
 
 
 
 \clearpage
-\question
-What is the purpose of the circled component in \fref{fig:PullDownResistor}?
+\question[1]\label{q:7}
+Circle the \textbf{snubber circuit} \fref{fig:FiringCircuitSnubber}
 \begin{figure}[h]
 \centering
-	\includegraphics[width=2.5in]{PullDownResistor.png}
-	\caption{Single MOSFET-based firing circuit with highlighted component.}
-	\label{fig:PullDownResistor}
+	\includegraphics[width=4.0in]{FiringCircuit.png}
+	\caption{Single MOSFET-based firing circuit for Question~\ref{q:7}.}
+	\label{fig:FiringCircuitSnubber}
 \end{figure}
-\begin{solution}[3in]
-The circled component is a pulldown resistor, it ensures the MOSFET turns off when nothing else is connected to the gate. 
-\end{solution}
-% Sp2020: Mike is asking to make this multiple choice
 
 
 
 
-\question
+\question[1]
 What type of camera are we using for the computer vision subsystem of our project?
 \begin{choices}
 \choice HD 720P 1.0MP Wide Angle Mini USB CCTV Camera
@@ -160,13 +156,16 @@ What type of camera are we using for the computer vision subsystem of our projec
 
 
 
-\clearpage
-\question
-What will happen when you close the switch shown in \fref{fig:ShortedFiringCircuit} (circle all that apply)?
+
+
+
+
+\question[1]\label{q:9}
+What will happen when you set the mbed \lstinline{DigitalOut} pin to logic high in \fref{fig:ShortedFiringCircuit} (circle all that apply)?
 \begin{figure}[h]
 \centering
 	\includegraphics[width=4.0in]{ShortedFiringCircuit.png}
-	\caption{Single MOSFET-based firing circuit with a shorted pulldown.}
+	\caption{Single MOSFET-based firing circuit with a shorted-pulldown for Question~\ref{q:9}.}
 	\label{fig:ShortedFiringCircuit}
 \end{figure}
 \begin{choices}
@@ -179,10 +178,16 @@ What will happen when you close the switch shown in \fref{fig:ShortedFiringCircu
 
 
 
-\question
-Explain briefly (2-3 sentences) how you processed your images in \Matlab. 
-\begin{solution}[3in]
-\end{solution}
+
+
+\question[1]
+What is the purpose of computer vision in our \usnaCourseNumber\ project (circle all that apply)?
+\begin{choices}
+\choice To process images using color thresholding
+\CorrectChoice To find the centroid (center) of our desired target to eventually aim the turret
+\choice To process images using object properties
+\choice To estimate the conversion from linear units to pixels and vice versa
+\end{choices}
 
 \end{questions}
 \end{document}
