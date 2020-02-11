@@ -1,4 +1,4 @@
-\documentclass[addpoints,answers]{exam}
+\documentclass[addpoints,noanswers]{exam}
 
 \newcommand{\myroot}{../../..}
 \usepackage[quiz]{\myroot/course}
@@ -89,7 +89,7 @@ What is the purpose of the components marked in \fref{fig:Snubber} (circle {\bf 
 
 
 
-
+% Sp2020: Question commented out; haven't done h-bridge yet
 %\question[1]
 %What is the acceptable output voltage range for the component shown in\fref{fig:TD340} (circle one)?
 %\begin{choices}
@@ -100,6 +100,12 @@ What is the purpose of the components marked in \fref{fig:Snubber} (circle {\bf 
 %\end{choices}
 
 
+% Sp2020: Question was already commented out; haven't done ballistics at 6 weeks
+%\question[1]
+%For a given range, if you calculate a CEP associated with a 75\% probability and take 100 shots, approximately how many shots will hit within the CEP?
+%\begin{solution}[3in]
+%The expectation $E(x) = 0.75\times 100 = 75$ shots. 
+%\end{solution}
 
 
 
@@ -118,7 +124,7 @@ Why did we implement switches (or a test wire) into the firing circuit prior to 
 
 
 
-
+% Sp2020 - Mike Kutzer asked that this be multiple choice; changed to circle
 \question[1]\label{q:6}
 Circle the \textbf{pulldown resistor} in \fref{fig:FiringCircuitPulldown}.
 \begin{figure}[h]
@@ -127,6 +133,16 @@ Circle the \textbf{pulldown resistor} in \fref{fig:FiringCircuitPulldown}.
 	\caption{Single MOSFET-based firing circuit for Question~\ref{q:6}.}
 	\label{fig:FiringCircuitPulldown}
 \end{figure}
+
+% Sp2020: question removed
+%\question[1]
+%What is the absolute maximum output current rating for the component shown in \fref{fig:MOSFET} (circle {\bf one})?
+%\begin{choices}
+%\choice \SI{50}{\milli\ampere}
+%\choice \SI{10.0}{\ampere}
+%\CorrectChoice \SI{50.0}{\ampere}
+%\choice I have no clue how to read a datasheet
+%\end{choices}
 
 
 
@@ -179,7 +195,7 @@ What will happen when you set the mbed \lstinline{DigitalOut} pin to logic high 
 
 
 
-
+% Sp2020: Changed from short answer to multiple choice
 \question[1]
 What is the purpose of computer vision in our \usnaCourseNumber\ project (circle all that apply)?
 \begin{choices}
