@@ -1,0 +1,106 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Establishing a communication protocol}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{Context}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Image here
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item For this project, you are using:
+\begin{itemize}
+\item NERF Blaster
+\begin{itemize}
+\item Pusher motor
+\item Flywheel motors
+\end{itemize}
+\item 1-DoF Turret (i.e. spins about 1 axis)
+\begin{itemize}
+\item Turret motor
+\item Turret encoder
+\end{itemize}
+\item USB Webcam
+\item Laptop running \Matlab
+\item mbed microcontroller
+\item Firing circuit
+\begin{itemize}
+\item Pusher motor
+\item Flywheel motors
+\end{itemize}
+\item Turret circuit
+\end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
+
+\begin{frame}
+\frametitle{Establishing serial communications between \Matlab\ and mbed}
+Silly diagram here
+\end{frame}
+
+\begin{frame}
+\frametitle{Comma Separated Values are Easy!}
+Diagram here
+\end{frame}
+
+\begin{frame}
+\frametitle{Parsing Annotated Strings...}
+Useless eye chart 
+Then add sequential build pointless junk graphic
+\end{frame}
+
+% This four level itemized list is ridiculous
+\begin{frame}
+\frametitle{Path Forward}
+\begin{itemize}
+\item Figure out what information you want and/or need to share
+\begin{itemize}
+\item Remember, your automated turret has two key capabilities that will run on the mBed
+\begin{itemize}
+\item Firing the NERF gun
+\item Turning the turret
+\end{itemize}
+\item Using a ``Command Flag'' to differentiate can be helpful. For example:
+\begin{itemize}
+\item Command Flag = 1 – This is a number of shots fire message
+\item Command Flag = 2 – This is a turret angle message
+\end{itemize}
+\end{itemize}
+\item If you define a message format to convey that information
+\begin{itemize}
+\item This format needs to include:
+\begin{itemize}
+\item Your message type(s) from:
+\begin{itemize}
+\item Computer to mbed (e.g. \lstinline!%d,%d\n – [Command Flag],[Shots to Fire]!)
+\item mbed to Computer (e.g. \lstinline!%f,%d,%d\n – [Time Stamp], [Shots to Fire],[Shots Fired]!)
+\end{itemize}
+\item Your serial port settings (baud rate, data bits, etc.)
+\end{itemize}
+\item Test with simple messages FIRST
+\item Implement!
+\end{itemize}
+\end{frame}
+
+\end{document}

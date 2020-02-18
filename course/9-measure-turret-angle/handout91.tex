@@ -1,0 +1,68 @@
+\documentclass{tufte-handout}
+
+\newcommand{\myroot}{../..}
+\usepackage[handout]{\myroot/course}
+\title{\usnaCourseNumber\ Task 9.1 -- Measure turret angle}
+\author{\usnaInstructorShort}
+\date{\printdate{\courseWeekSeven}}
+
+
+\usepackage{tikz}
+\tikzset{
+block/.style={rectangle, minimum width=0.75in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
+arrow/.style={thick,<-,>=stealth},
+noarrow/.style={thick}}
+
+\begin{document}
+\maketitle
+
+EW309 Turret Subsystem 
+Measure Turret Angle
+Goal
+A control feedback system conducts three essential actions: 1) sense, 2) decide, and 3) actuate. We have tackled the actuation portion of the system (that is, we should now we able to specify a duty cycle and direction and move the turret system via the DC motor and TD340 motor driver).  
+We will now turn our attention to sensing the position of the turret.  The position of the turret is what we eventually wish to control – guiding our turrets to a desired angle (position) before we shoot at a designated target.  
+Encoder Familiarization
+While you may be familiar with encoders as position sensors from your previous classes, the next step in this project is to become familiar with the position sensor associated with our DC motor.  If you look underneath the base of your turret, you will notice a grey cable attached to your DC motor as show in Fig. 1.  The other end will eventually attach to a five-pin male header on your breadboard which will be connected to your Mbed.
+                                                                          
+Figure 1: EW309 Auto-turret DC Motor with cabling from the rotary position sensor highlighted
+
+Locate the datasheet of the DC motor used to actuate the turret on the bottom of the motor.  You can find the datasheet for this motor by going to https://intranet.usna.edu/WRCLabs/index.htm, click on Parts, and then find MOT on the left-hand side.  Click on MOT to bring up another hyperlink for Motors and then find your turret motor in the list.  
+The following questions should be answered as you work through these guidelines and addressed in your write-up for the appropriate subsection of your final design report.
+    1. What type of sensor is attached to the back of the GMX-6MP009A DC motor?
+    2. For the sensor connected to this DC motor, how many wires are required to relay the information to the Mbed
+    3. For each wire required, describe the signal being conducted.  You will want to take note of the orientation of all the wires.  TSD has utilized the black wire in the cable as GND or COMMON as a reference
+Generate a Calibration Equation 
+For any rotational sensor, there should be a calibration expression or relationship between the output of the sensor and the rotational angle displacement.  For this project, you are asked to develop the expression that relates the resolution of the rotational angle displacement to the output of your sensor (e.g. convert a value of voltage or number of pulses to angular displacement in radians).  
+From the datasheet, locate the information on sensor output- specifically the number of pulses per one revolution of the motor.  You should look for the after-gearing values.  Using this information, determine the number of pulses per 1 radian.  
+
+Connection to the Mbed
+The sensor utilizes four wires as shown in Fig. 2. A FIVE pin male header (there will be one no connect (NC) pin within that bundle) connects the Mbed processor with the rotary sensor. 
+
+                          
+                                                  Figure 2: Connection to Mbed 
+
+Select two pins of the Mbed to serve as inputs for Channel A and Channel B of the encoder. Connect your GND and 5V lines appropriately. 
+IMPORTANT: The header for the TD340 motor driver looks just like the header pin for the encoder interface. It is recommended that you label each header in some fashion so that you don’t inadvertently plug the encoder into the interface for the TD340 board. 
+Also, the header pins are not KEYED, so make note of the orientation of the cable so that you don’t plug the cable in BACKWARDS. Use the GND wire as a reference. 
+Once complete, your system will look similar to Figure 3. 
+               
+                                               Figure 3: Encoder connection to Mbed processor 
+
+
+
+                                                              
+Reading an Encoder on the Mbed
+In order to read the encoder, you will need to import the QEI library into your project. In your compiler, go to the Import Wizard by clicking on the Import button on the top of the page.  Click on Libraries and do a search for QEI.  The first library that comes up should be the Quadrature encoder interface library that you need for your project.  
+Your task now is to write a simple program that will read the encoder sensor and then convert that measurement into a calibrated rotational angle rad. You will need the calibration relationship you found in the section titled “Generate a Calibration Equation”.  Use the example program that you found online as a guide to writing your own program.
+IMPORTANT: To be consistent, we will adopt a CLOCKWISE (CW) rotation (as viewed looking DOWN on the turret) as positive rotation. 
+                                                 
+Bringing It All Together
+Summarizing the steps above, you should have the following:
+    1. An understanding of the type of rotary sensor we are using to determine the turret angle
+    2. A calibration equation that relates the output of the rotary sensor to the turret position in radians
+    3. The encoder interface connection to your Mbed which includes (1) a connection for each channel on your encoder, (2) 5V power, and (3) a common ground
+    4. Code that reads the encoder sensor and converts the measurement into a calibrated angle in radians. You can check that your calibration expression works properly by printing the output to Tera Term and verifying your results.
+\end{document}
+ 
+
+

@@ -1,0 +1,163 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Sizing and selecting a motor}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{Functional requirements}
+Brainstorm a list of things the turret motor must be able to do. 
+Be as specific as possible.
+Circle things that need additional computation.
+\end{frame}
+
+\begin{frame}
+\frametitle{Functional requirements: speed}
+Draw a simple speed profile (velocity versus time) for a move of \ang{30} in \SI{2}{\second}. What is the maximum acceleration for your profile? Why is this important? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Functional requirements: torque}
+List all items that contribute to the motor's load. What equations are relevant? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Functional requirements: torque}
+Using the spreadsheet provided on the Google Drive, estimate the torque required to move your turret. 
+Use careful measurements (to nearest \si{\gram}, \si{0.125}{\inch}, etc)
+Convert all units to SI (\si{\kilo\gram} and \si{\meter})
+\end{frame}
+
+\begin{frame}
+\frametitle{Design margin}
+What are the possible consequences if our estimates are too low?
+What are possible consequences if our estimates are too high?
+Torque estimate with design margin
+% A designer should aim for a 50\% torque allowance for most industrial applications \cite{Stiffler}
+\end{frame}
+% Stiffler, Design with Microprocessors for Mechanical Engineers
+
+\begin{frame}
+\frametitle{What is the power required?}
+Power required
+\begin{equation}
+P = T_f\omega + J\alpha\omega
+\end{equation}
+Motor power
+\begin{equation}
+P = 
+\end{equation}
+%As a starting point, choose a motor with double the calculated power requirements \cite{Stiffler}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{So let's pick a motor!}
+What kind of motors have you learned about or can we use for our auto turret application?
+\end{frame}
+
+\begin{frame}
+\frametitle{Simplified list of DC motors}
+Brushed DC motor
+Brushless DC motor
+Stepper motor
+(industrial) Servo motor
+Servo
+\end{frame}
+
+\begin{frame}
+\frametitle{Brushed DC motor}
+Motor typically is controlled using two wires
+Feedback control typically requires an encoder
+Motors are typically sold with a gearbox/gearhead
+Brushed DC Motor Assembly typically includes
+Brushed DC Motor
+Encoder
+Gearbox/Gearhead
+\end{frame}
+
+\begin{frame}
+\frametitle{Brushless DC motor}
+Motor is controlled using multiple wire pole pairs
+Feedback control typically requires an encoder
+Motors are typically sold with a gearbox/gearhead
+“Brushless DC Motor Assembly” typically includes
+Brushless DC Motor
+Encoder
+Gearbox/Gearhead
+\end{frame}
+
+\begin{frame}
+\frametitle{Stepper motor}
+Motor is controlled using multiple wire pole pairs
+Motor is typically controlled open-loop using a “step” process
+Motors are typically controlled using a commercial-off-the-shelf stepper motor controller rated for the specific motor.
+\end{frame}
+
+\begin{frame}
+\frametitle{(industrial) Servo motor}
+The “motor” is actually an assembly containing a DC motor, typically a gearbox, and sensor (e.g. encoder).
+Servo motors often require a “control module” to interface with a system.
+Control modules are specific to the motor assembly and typically act as a closed-loop position controller.
+\end{frame}
+
+\begin{frame}
+\frametitle{Servo}
+The “motor” is actually a closed-loop system containing a DC motor, gearbox, potentiometer, and feedback control circuit
+Motors respond to a common pulse coded signal to drive to desired positions
+RC servos typically have rotation constraints
+\end{frame}
+
+\begin{frame}
+\frametitle{How to decide a motor for your auto turret}
+Select a set of objectives (goals for your design) and then prioritize them
+Some examples might be (3) cost, (2) weight, and (1) size
+The bigger the number the higher the priority
+Establish some conceptual metrics for each objective
+For cost – you might have less than $100 (5 pts), between $100-$1000 (3 pts), or over $100 (0 pts).  For weight you might have less than 400 grams (5pts) , 400-1000 grams (3pts), over 1000 grams (1 pt). 
+For each motor alternative, use your metrics to score each objective 
+Multiplying the objective weight (priority) by the metric score and then sum all the weighted objective scores
+‘Best’ design is that with the highest composite score
+\end{frame}
+
+\begin{frame}
+\frametitle{Constraints}
+You must pick design alternatives that meet your auto-turret requirements
+Otherwise you would not be considering that motor
+You also must pick design alternatives that are feasible
+The motor that drives the Lone Star's geothermal drill and water well is super cool since it drills as deep as 400 feet through hard rock and volcanic formations.  But chances are it is probably overkill for your NERF turret.
+\end{frame}
+
+\begin{frame}
+\frametitle{Autonomous turret system decision matrix}
+\end{frame}
+
+\begin{frame}
+\frametitle{To do}
+Verify that the DC motor in the turret meets our requirements 
+Use the Excel spreadsheet to calculate torque requirements
+Check speed, torque, and power at our operating voltage
+Identify an alternative motor that would fulfill our requirements
+Website search using online datasheets
+Come up with a few objectives, weight (prioritize) them, and generate metrics for your objectives as a project team for your turret system
+Score the two motors using the weights to compute totals. 
+Be prepared to discuss your choice in your final report
+Complete Moving the turret (instructions) document.
+\end{frame}
+\end{document}

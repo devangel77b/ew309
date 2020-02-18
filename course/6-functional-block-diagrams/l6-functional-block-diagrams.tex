@@ -1,0 +1,162 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\newcommand{\myroot}{../..}
+\usepackage[slides]{\myroot/course}
+\title{Functional block diagrams}
+\subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
+\author{\usnaInstructorShort}
+\date{\today}
+	
+\usetheme{Hopper}
+
+\begin{document}
+\settitlebg
+\begin{frame}
+\titlepage
+\end{frame}
+
+\setslidebg
+\begin{frame}
+\frametitle{Purpose and types of technical documentation}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Purpose
+\begin{itemize}
+\item Gives the customer and engineer a big picture view of a system
+\item Breaks the larger system into smaller components to be designed or selected
+\item Facilitates the division of labor among the engineering team
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+Types
+\begin{itemize}
+\item Functional block diagrams
+\item Interface control documents
+\item Performance specifications
+\item Pseudocode or algorithm
+\item Technical reports
+\end{itemize}
+\end{column}
+\end{columns}
+
+\begin{frame}
+\frametitle{The functional block diagram}
+\begin{itemize}
+\item A functional block diagram is a \textbf{visual representation} of the subsystems and components showing the interconnections between each component and subsystem
+\item Each block is a subsystem, with a label that includes the name and the component list
+\item Each block is connected to other blocks 
+\begin{itemize}
+\item Each line matches one of three connection line styles:  data, electrical or mechanical.
+\item \textbf{Each line is labeled with the specifics of the connection}
+\item Lines should be laid out in an easy-to-read manner
+\end{itemize}
+\item A FBD should be \textbf{readable}, and include a legend and title
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{EW202 Elevator Lab}
+Graphic here
+\end{frame}
+
+\begin{frame}
+\frametitle{FBD example: EW202 Elevator Lab}
+Shitty graphic here
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Functional block diagrams help you}
+\begin{itemize}
+\item Communicate system architecture
+\item Break a system down into manageable subsystems
+\item Understand the interfaces between subsystems
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Content of the blocks}
+\begin{itemize}
+\item Each block should be described in detail
+\item All connections should be shown
+\item Any information transfer, protocols, voltages, etc. should be shown
+\item Direction of flow should be annotated
+\item Blocks may contain additional information:
+\begin{itemize}
+\item Pseudocode
+\item Equation
+\item Methodology
+\item Citation if you will use someone else's method
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{There are several types of connections on your FBD}
+\begin{itemize}
+\item Functional
+\item Mechanical
+\item Electrical connections
+\item Data connections
+\item Data protocols
+\item Software function connectivity
+\item All are important, but some are more important based on your project type.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What type of connections do we have for the \usnaCourseNumber\ Autonomous Turret System?}
+Ugly graphic here
+\end{frame}
+
+\begin{frame}
+\frametitle{FBD Example: Autonomous Turret (Data commands/electrical)}
+Ugly graphic here
+\end{frame}
+
+\begin{frame}
+\frametitle{FBD Example: Autonomous Turret (Physical and data connections)}
+Ugly graphic here
+\end{frame}
+
+% This is ridiculous. Do we need a 3 level list here?!?!
+\begin{frame}
+\frametitle{To do}
+\begin{itemize}
+\item Start working on a functional block diagram for your auto-turret (we will add to this as the semester goes on). 
+\item What subsystems does your project currently have? 
+\begin{itemize}
+\item These should be represented as blocks on your FBD
+\end{itemize}
+\item What components belong to each of these subsystems?
+\begin{itemize}
+\item Components should be listed within their respective subsystem blocks
+\item Components can also be their own blocks as well if they communicate directly with other components
+\end{itemize}
+\item For each subsystem and component, ask
+\begin{itemize}
+\item What are the inputs?
+\item What are the outputs?
+\item What type of connections are required 
+\begin{itemize}
+\item Electrical
+\item Mechanical
+\item Data
+\item Other?
+\end{itemize}
+\end{itemize}
+\item Don’t forget your power sources!
+\end{itemize}
+\end{frame}
+
+\end{document}

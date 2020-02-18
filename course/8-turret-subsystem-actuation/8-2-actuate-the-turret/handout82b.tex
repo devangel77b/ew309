@@ -1,0 +1,81 @@
+\documentclass{tufte-handout}
+
+\newcommand{\myroot}{../..}
+\usepackage[handout]{\myroot/course}
+\title{\usnaCourseNumber\ Task 8.2b -- Connecting the mbed to the motor driver}
+\author{\usnaInstructorShort}
+\date{\printdate{\courseWeekSeven}}
+
+
+\usepackage{tikz}
+\tikzset{
+block/.style={rectangle, minimum width=0.75in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
+arrow/.style={thick,<-,>=stealth},
+noarrow/.style={thick}}
+
+\begin{document}
+\maketitle
+
+EW309 Turret Subsystem 
+Motor Driver Familiarization and Connecting to the Mbed
+Goal
+A control feedback system conducts three essential actions: 1) sense, 2) decide, and 3) actuate. These actions are repeated over and over in a timely fashion. The control system must sense what it is trying to manipulate (such as the position of the turret). It must then decide how to actuate the system based on that sensed measurement (this is the job of the control algorithm that you learned in EW305). And finally, the control system must actuate the system (this is the job of the motor and motor driver). 
+Prior to implementing a control algorithm on an experimental test stand, we must FIRST ensure that we can: 1) sense what we are trying to control and 2) actuate the system.  For our auto-turret, system we are going to make sure we can actuate the turret platform first. We will then work on sensing the position of the turret.
+Motor Driver Familiarization
+As with the spinner and plunger motors of our NERF guns, we need a drive circuit to actuate larger motors via the Mbed. In our application, a custom motor driver board called the TD340 board is utilized. It was constructed by our Technical Services Division (TSD) and is shown in Fig. 1.              
+                      
+
+
+
+
+
+Figure 1: TD340 Motor driver board showing the interface pins to the micro   controller, the motor connections, and the voltage supply and ground pins.  Note the jumper pin for either analog or digital control
+
+Locate the data sheet for the TD340 motor driver on the WRC technical support website (as a reminder you can find it at https://intranet.usna.edu/WRCLabs/index.htm). Find the operating voltage range for the TD340 motor driver board and verify we are within the acceptable range.
+Speed and Direction Control
+The TD340 IC provides the necessary interface between an H-Bridge DC-Motor Control configuration and a micro controller. The speed and direction are given by two input signals coming from the microprocessor.
+Speed Control: Speed control is achieved by Pulse Width Modulation (PWM). The TD340 provides an internal PWM generator, but can accept an external PWM waveform.  The IN1 pin can accept two different types of inputs: 
+    1. An analog input between 0 and 5V which gives an analog value of the Internal PWM duty cycle
+    2. A digital input which directly gives the PWM duty cycle.  
+Direction Control: IN2 accepts a digital value of the rotation direction.
+Figure 2 represents the Duty Cycle curve versus the IN1 analog voltage.  What do you notice about this curve?  Specifically what happens when your analog input voltage is less than 1.2V?
+
+                          
+           Figure 2: Duty Cycle verses IN1 voltage
+What is the analog input range of your Mbed?  Compare this to the analog input range of the TD340 Motor Driver.  How would you determine the PWM resolution?  
+Compared to the digital speed control input, which communication protocol (analog or digital) do you think would provide more accurate control of your motor?
+
+Connecting the Mbed to the TD340 Motor Driver
+
+From your above investigation, you should determine that the digital interface protocol should have been selected (the why portion should be reasoned above). Therefore, you will need to connect three pins of the Mbed to three pins on the TD340 board for implementation (IN1, IN2, GND). For cabling simplicity, we can accomplish this by utilizing a PRE-MADE 5 pin connector cable as shown in Fig. 3.
+                                                 
+Figure 3: Pre-made connector cable from Mbed to TD340 board
+We only need three wires; therefore, two wires in the pre-made cable will be no-connects (NC).
+On your breadboard, select the appropriate pins from the Mbed (refer to the pinout picture of the Mbed for guidance) and then wire those pins in the correct order to a male header pin on your bread board as show in Fig. 4.  
+NOTE:  A 10K resistor is needed on one of your Mbed connector pins – which one?  Hint: try it without one and see what happens.  Make sure nothing is near the turret and be ready to disconnect power!
+
+
+
+
+
+
+
+
+Figure 4: Male header pin connector
+When fully connected, your system should appear similar to Fig. 5
+                                                          
+                                        Figure 5: Properly connected TD340 Motor Driver to Breadboard
+
+Bringing It All Together
+Once your wiring connection is established, you should create a program on your Mbed that does the following:
+    1. Accepts a duty cycle command from the user via Tera Term
+    2. Accepts a direction command from the user via Tera Term
+    3. Ensures that the duty cycle (DC) is within appropriate bounds (-100% < DC <100%). Saturate if necessary.
+    4. Applies the direction and duty cycle command correctly to the motor.
+IMPORTANT: When starting out (i.e., the first time you get ready to run the motor), it is advised to saturate the DC to a LOW value (say 10%). That way, you do not get surprised by a fast spinning turret system.
+Hint #1: There exists a Motor class that you may utilize.
+Hint #2: Alternatively, there exists a PwmOut class that you may utilize.
+\end{document}
+ 
+
+
