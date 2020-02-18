@@ -4,6 +4,8 @@
 \renewcommand\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
 
+\usepackage{svg}
+
 \newcommand{\myroot}{../..}
 \usepackage[slides]{\myroot/course}
 \title{Firing the nerf guns with mbed}
@@ -23,14 +25,14 @@
 \begin{frame}
 \frametitle{General instructions (1 of 2)}
 \begin{itemize}
-\item If you decide to leave the mechanical switches in your firing circuit, you must disconnect them COMPLETELY before connecting the mBed
+\item If you decide to leave the mechanical switches in your firing circuit, you must disconnect them \textbf{completely} before connecting the mbed
 \begin{itemize}
 \item This prevents potential damage to your microcontroller
 \end{itemize}
-\item Mount your mBed on the protoboard.  Be sure to place it such that the USB connector is accessible from the end of the protoboard (if possible)
-\item Connect the ground pin of the mBed to the circuit GND on your breadboard
+\item Mount your mbed on the protoboard.  Be sure to place it such that the USB connector is accessible from the end of the protoboard (if possible)
+\item Connect the ground pin of the mbed to the circuit ground on your breadboard
 \begin{itemize}
-\item Be aware of breaks in the protoboard – install jumpers as needed)
+\item Be aware of breaks in the protoboard -- install jumpers as needed)
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -38,7 +40,7 @@
 \begin{frame}
 \frametitle{General instructions (1 of 2)}
 \begin{itemize}
-\item Select two \lstinline{PwmOut} pins on the mBed to connect to your the gates of your 50N06 MOSFETs.
+\item Select two \lstinline{PwmOut} pins on the mbed to connect to your the gates of your 50N06 MOSFETs.
 \begin{itemize}
 \item The \SI{10}{\kilo\ohm} pull down resistors remain in the circuit!
 \end{itemize}
@@ -51,7 +53,10 @@
 \end{frame}
 
 \begin{frame}
-Graphic here
+\begin{center}
+\includegraphics[width=0.25\columnwidth]{\myroot/figures/l7b-f4a.png}
+\includesvg[width=0.25\columnwidth]{\myroot/figures/l7b-f4b.svg}
+\end{center}
 \end{frame}
 
 \end{document}

@@ -4,6 +4,8 @@
 \renewcommand\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
 
+\usepackage{svg}
+
 \newcommand{\myroot}{../..}
 \usepackage[slides]{\myroot/course}
 \title{Establishing a communication protocol}
@@ -24,7 +26,9 @@
 \frametitle{Context}
 \begin{columns}
 \begin{column}{0.5\textwidth}
-Image here
+\begin{center}
+\includegraphics[width=0.9\columnwidth]{\myroot/figures/l7-f2.png}
+\end{center}
 \end{column}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
@@ -53,15 +57,20 @@ Image here
 \end{itemize}
 \end{column}
 \end{columns}
+\end{frame}
 
 \begin{frame}
 \frametitle{Establishing serial communications between \Matlab\ and mbed}
-Silly diagram here
+\begin{center}
+\includesvg[width=0.9\columnwidth]{\myroot/figures/l7-f3.svg}
+\end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{Comma Separated Values are Easy!}
-Diagram here
+\begin{center}
+\includesvg[width=0.9\columnwidth]{\myroot/figures/l7-f4.svg}
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -92,11 +101,12 @@ Then add sequential build pointless junk graphic
 \item This format needs to include:
 \begin{itemize}
 \item Your message type(s) from:
-\begin{itemize}
-\item Computer to mbed (e.g. \lstinline!%d,%d\n – [Command Flag],[Shots to Fire]!)
-\item mbed to Computer (e.g. \lstinline!%f,%d,%d\n – [Time Stamp], [Shots to Fire],[Shots Fired]!)
-\end{itemize}
+%\begin{itemize}
+%\item Computer to mbed %(e.g. \lstinline!\%d,\%d\n – [Command Flag],[Shots to Fire]!)
+%\item mbed to Computer %(e.g. \lstinline!%f,%d,%d\n – [Time Stamp], [Shots to Fire],[Shots Fired]!)
+%\end{itemize}
 \item Your serial port settings (baud rate, data bits, etc.)
+\end{itemize}
 \end{itemize}
 \item Test with simple messages FIRST
 \item Implement!
