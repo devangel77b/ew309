@@ -1,60 +1,79 @@
-\documentclass{tufte-handout}
+%\documentclass{tufte-handout}
+\documentclass{exam}
 
-\newcommand{\myroot}{../..}
-\usepackage[handout]{\myroot/course}
+\newcommand{\myroot}{../../..}
+%\usepackage[handout]{\myroot/course}
+\usepackage[hw]{\myroot/course}
 \title{\usnaCourseNumber\ Task 8.2a -- Motor familiarization}
 \author{\usnaInstructorShort}
 \date{\printdate{\courseWeekSeven}}
+\duedate{in class}
 
 
-\usepackage{tikz}
-\tikzset{
-block/.style={rectangle, minimum width=0.75in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
-arrow/.style={thick,<-,>=stealth},
-noarrow/.style={thick}}
 
 \begin{document}
 \maketitle
 
-Goal
-A control feedback system conducts three essential actions: 1) sense, 2) decide, and 3) actuate. These actions are repeated over and over in a timely fashion. The control system must sense what it is trying to manipulate (such as the position of the turret). It must then decide how to actuate the system based on that sensed measurement (this is the job of the control algorithm that you learned in EW305). And finally, the control system must actuate the system (this is the job of the motor and motor driver). 
-Prior to implementing a control algorithm on an experimental test stand, we must FIRST ensure that we can: 1) sense what we are trying to control and 2) actuate the system.  For our auto-turret, system we are going to make sure we can actuate the turret platform first. We will then work on sensing the position of the turret.
-Motor Familiarization
-The first step is to familiarize ourselves with the equipment of the turret subsystem, which consists of a DC motor and a corresponding motor driver.  
-                                    
-                  (a)  DC Motor             				  (b) Motor Driver
-Figure 1: (a) EW309 Auto-turret DC Motor; (b) TD340 Motor Driver board mounted on EW309 Turret #16.
+\begin{abstract}
+Our goal is a feedback control system that conducts three essential actions: 1) sense, 2) decide, and 3) actuate. These actions are repeated over and over in a timely fashion. The control system must sense what it is trying to manipulate (such as the position of the turret). It must then decide how to actuate the system based on that sensed measurement (this is the job of the control algorithm that you learned in EW305). Finally, the control system must actuate the system (this is the job of the motor and motor driver). 
+\end{abstract}
+
+
+\section{Introduction}
+Prior to implementing a control algorithm on an experimental test stand, we must first ensure that we can: 1) sense what we are trying to control and 2) actuate the system.  For our auto-turret, system we are going to make sure we can actuate the turret platform first. We will then work on sensing the position of the turret.
 
 
 
-Locate the make and model number of the DC motor used to actuate the turret on the bottom of the motor.  You can find the datasheet for this motor by going to https://intranet.usna.edu/WRCLabs/index.htm, click on Parts, and then find MOT on the left-hand side.  Click on MOT to bring up another hyperlink for Motors and then find your turret motor in the list. 
-Generate a Torque-Speed Curve
-    1. Locate on the datasheet the motor’s specified operating voltage (rated voltage).
-    2. Find the no-load speed of this motor and express it in rad/sec. (If the datasheet does not provide the answer in rad/sec, you must convert it)
-    3. Locate the LAB TEST RESULTS on the datasheet for Speed (RPM), Torque (Oz IN) and Current (AMPS).  Convert the Torque to Nm and the Speed to rad/sec.  
-    4. Use MATLAB to generate a Torque-Speed curve using the Torque and Speed data points.  For example, if you had two vectors named torque and speed that held the values of the test data in the correct units, the Matlab command
 
-	p = polyfit(speed, torque, 1)
 
-will fit a polynomial of degree 1 to your (speed, torque) data where p(1) stores the value of the slope and p(2) the value of your y-intercept.  An example Torque-Speed curve is shown in Figure 2.  Remember to label your x and y axes (include units) and highlight the Stall Torque and No Load Speed on your graphs.  
 
-                                       
-Figure 2: An example of a Torque-Speed Curve that highlights the points of stall torque and no-load speed.  
+\section{Motor familiarization}
+The first step is to familiarize ourselves with the equipment of the turret subsystem, which consists of a DC motor and a corresponding motor driver.                   
+\begin{figure}[h]
+%(a)  DC Motor             				  (b) Motor Driver
+\caption{(a) EW309 Auto-turret DC Motor; (b) TD340 Motor Driver board mounted on EW309 Turret \#16.}
+\label{fig:1}
+\end{figure}
 
-    5. Estimate the stall current for your motor.  Hint: use the LAB TEST RESULTS for Current and generate a second polynomial of degree 1 with your (torque, current) data.  To see the relationship between both Current and Speed vs. Torque, generate a third polynomial that fits (torque, speed) data and plot Speed vs Torque and Current vs Torque on the same figure.  Investigate the use of yyaxis left and yyaxis right commands in MATLAB to do this.  Be sure to label all your axes appropriately.
+Locate the make and model number of the DC motor used to actuate the turret on the bottom of the motor.  You can find the datasheet for this motor by going to \url{https://intranet.usna.edu/WRCLabs/index.htm}, click on \lstinline{Parts}, and then find \lstinline{MOT} on the left-hand side.  Click on \lstinline{MOT} to bring up another hyperlink for Motors and then find your turret motor in the list. 
 
-    6. From the stall current and the operating voltage, estimate the motor’s armature resistance, 
-    7. Since we will be powering our turrets from the external power supplies using 12V, what happens to the no-load speed for this motor when the operating voltage is reduced?  
-    8. Using a 12V power supply, estimate the stall torque for this motor (in Nm).  
-    9. Update the curve fit data for Current and Speed vs Torque to reflect the change from 24V to 12V.
-    10. What is the change (if any) in the armature resistance for the motor when you switch to 12V?  Why?
 
-Bringing It All Together
+
+
+
+\section{Generate a torque-speed curve}
+\begin{questions}
+\question Locate on the datasheet the motor’s specified operating voltage (rated voltage).
+\question Find the no-load speed of this motor and express it in \si{\radian\per\second}. (If the datasheet does not provide the answer in \si{\radian\per\second}, you must convert it)
+\question Locate the \lstinline{LAB TEST RESULTS} on the datasheet for speed (\si{RPM}), torque (\si{\ounce\inch}) and current (\si{\ampere}).  Convert the torque to \si{\newton\meter} and the speed to \si{\radian\per\second}.  
+\question Use \Matlab\ to generate a torque-speed curve using the torque and speed data points.  For example, if you had two vectors named \lstinline{torque} and \lstinline{speed} that held the values of the test data in the correct units, the \Matlab\ command
+\begin{lstlisting}[style=usnaMatlab]
+p = polyfit(speed, torque, 1)
+\end{lstlisting}
+will fit a polynomial of degree 1 to your (speed, torque) data where \lstinline{p(1)} stores the value of the slope and \lstinline{p(2)} the value of your $y$-intercept.  An example torque-speed curve is shown in \fref{fig:2}.  Remember to label your $x$ and $y$ axes (include units) and highlight the stall torque and no-load speed on your graphs.  
+\begin{figure}[h]
+\caption{An example of a torque-speed curve that highlights the points of stall torque and no-load speed.}
+\label{fig:2}
+\end{figure}
+\question Estimate the stall current for your motor\footnote{Hint: use the \lstinline{LAB TEST RESULTS} for current and generate a second polynomial of degree 1 with your (torque, current) data.}  To see the relationship between both current and speed versus torque, generate a third polynomial that fits (torque, speed) data and plot speed vs torque and current vs torque on the same figure.  Investigate the use of \lstinline{yyaxis left} and \lstinline{yyaxis right} commands in \Matlab\ to do this.  Be sure to label all your axes appropriately.
+\question From the stall current and the operating voltage, estimate the motor’s armature resistance.
+\question Since we will be powering our turrets from the external power supplies using \SI{12}{\volt}, what happens to the no-load speed for this motor when the operating voltage is reduced?  
+\question Using a \SI{12}{\volt} power supply, estimate the stall torque for this motor (in \si{\newton\meter}).  
+\question Update the curve fit data for current and speed vs torque to reflect the change from \SI{24}{\volt} to \SI{12}{\volt}.
+\question What is the change (if any) in the armature resistance for the motor when you switch to \SI{12}{\volt}?  Why?
+\end{questions}
+    
+    
+    
+
+\section{Bringing it all together}
 Summarizing the steps above, you should have the following:
-    1. A plot of torque vs speed for a 24V operating voltage
-    2. A plot of current and speed vs torque for a 24V operating voltage
-    3. A plot of current and speed vs torque for a 12V operating voltage
-    4. All plots should have clearly labeled x-axis and y-axis as well as no-load speed, stall torque, and stall current highlighted on the plots.
+\begin{enumerate}
+\item A plot of torque vs speed for a \SI{24}{\volt} operating voltage
+\item A plot of current and speed vs torque for a \SI{24}{\volt} operating voltage
+\item A plot of current and speed vs torque for a \SI{12}{\volt} operating voltage
+\item All plots should have clearly labeled $x$ and $y$-axes as well as no-load speed, stall torque, and stall current highlighted on the plots.
+\end{enumerate}
 \end{document}
  
 
