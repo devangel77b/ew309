@@ -1,40 +1,51 @@
-\documentclass{tufte-handout}
+\documentclass{exam}
 
 \newcommand{\myroot}{../..}
-\usepackage[handout]{\myroot/course}
+\usepackage[hw]{\myroot/course}
 \title{\usnaCourseNumber\ Task 9.2 -- Logging experimental data}
 \author{\usnaInstructorShort}
 \date{\printdate{\courseWeekSeven}}
+\duedate{in class}
 
 
-\usepackage{tikz}
-\tikzset{
-block/.style={rectangle, minimum width=0.75in, minimum height=3em, text centered, align=center, draw=black, fill=blue!30},
-arrow/.style={thick,<-,>=stealth},
-noarrow/.style={thick}}
 
 \begin{document}
 \maketitle
-EW309 Turret Subsystem 
-Logging Experimental Data
-Goal
-We are now at a point where we may wish to save measurements from our encoder, export those measurements from the Mbed, and then analyze them in MATLAB.  To aid in the analysis, it is beneficial to capture measurements at a specified rate and for a certain duration of time.  The Ticker class will allow you to repeatedly execute a function at a specified interval whereas the Timer class allows you to create timers and measure small times (between microseconds and seconds).                                    
-Ticker Class
-The Ticker class in Mbed interface is used to setup a recurring interrupt to repeatedly call a function at a specified rate. You may create any number of Ticker objects, allowing multiple outstanding interrupts at the same time. The function can be a static function, or a member function of a particular object.
 
-Go to the link https://os.mbed.com/handbook/Ticker and run the simple program that setups a Ticker to invert an LED.  Notice where the Ticker object is declared and the Ticker function defined.  
-Timer Class
-The Timer interface is used to create, start, stop and read a timer for measuring small times (between microseconds and seconds). Any number of Timer objects can be created, and can be started and stopped independently
+\begin{abstract}
+We are now at a point where we may wish to save measurements from our encoder, export those measurements from the mbed, and then analyze them in \Matlab.  To aid in the analysis, it is beneficial to capture measurements at a specified rate and for a certain duration of time.  The \lstinline{Ticker} class will allow you to repeatedly execute a function at a specified interval whereas the \lstinline{Timer} class allows you to create timers and measure small times (between microseconds and seconds).                                    
+\end{abstract}
 
-Go to the link https://os.mbed.com/handbook/Timer and run the Timer_HelloWorld program.  Observer the Timer object declaration as well as the syntax for starting and stopping the timer.  Try adding a second timer and see observe the results.
-Bringing It All Together
+
+
+
+\section{\lstinline{Ticker} class}
+The \lstinline{Ticker} class is used to setup a recurring interrupt to repeatedly call a function at a specified rate. You may create any number of \lstinline{Ticker} objects, allowing multiple outstanding interrupts at the same time. The function can be a static function, or a member function of a particular object.
+
+Go to the link \url{https://os.mbed.com/handbook/Ticker} and run the simple program that setups a \lstinline{Ticker} to invert an LED.  Notice where the \lstinline{Ticker} object is declared and the \lstinline{Ticker} function defined.  
+
+
+
+
+\section{\lstinline{Timer} class}
+The \lstinline{Timer} interface is used to create, start, stop and read a timer for measuring small times (between microseconds and seconds). Any number of \lstinline{Timer} objects can be created, and can be started and stopped independently
+
+Go to the link \url{https://os.mbed.com/handbook/Timer} and run the \lstinline{Timer_HelloWorld} program.  Observer the \lstinline{Timer} object declaration as well as the syntax for starting and stopping the timer.  Try adding a second timer and see observe the results.
+
+
+
+
+
+\section{Bringing it all together}
 Use the Ticker and Timer classes to complete the steps below.
-    1. Measure exactly 5.0(sec) of a manually moved (approximate) sinusoidal motion of the rotor displacement angle .
-    2. Measurements should be taken at a rate of 100.0(Hz). 
-    3. Save/log displacement angle  and the TIME at which it was logged. 
-    4. Export the data from your program in an efficient manner for plotting in MATLAB. 
-    5. Import the data into MATLAB. 
-    6. Plot the displacement angle  vs. time in a MATLAB figure. 
+\begin{questions}
+\question Measure exactly \SI{5.0}{\second} of a manually moved (approximate) sinusoidal motion of the rotor displacement angle $\theta$.
+\question Measurements should be taken at a rate of \SI{100.0}{\hertz}. 
+\question Save/log displacement angle $\theta$ and the time at which it was logged. 
+\question Export the data from your program in an efficient manner for plotting in \Matlab. 
+\question Import the data into \Matlab. 
+\question Plot the displacement angle $\theta$ vs. time in a \Matlab\ figure. 
+\end{questions}
 \end{document}
  
 
