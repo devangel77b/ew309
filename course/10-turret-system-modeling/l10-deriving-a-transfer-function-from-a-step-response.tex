@@ -50,24 +50,24 @@ Graphic here
 \begin{column}{0.5\textwidth}
 \begin{enumerate}
 \item Collect data
-\begin{lstlisting}[style=usnaMatlab]
-t = ; % Data collected from mbed (1xN array)
-theta_dot = % Data collected from mbed (1xN array)
-\end{lstlisting}
+%\begin{lstlisting}[style=usnaMatlab]
+%t = ; % Data collected from mbed (1xN array)
+%theta_dot = % Data collected from mbed (1xN array)
+%\end{lstlisting}
 \item Define the function
-\begin{lstlisting}[style=usnaMatlab]
-fittype_measured = fittype(...
-	'( (0.5*b)/a )*(1 - exp(-a*x))',... 	'dependent',{'y'},... 
-	'independent',{'x'},... 	'coefficients',{'a','b'});
-\end{lstlisting}
+%\begin{lstlisting}[style=usnaMatlab]
+%fittype_measured = fittype(...
+%	'( (0.5*b)/a )*(1 - exp(-a*x))',... 	'dependent',{'y'},... 
+%	'independent',{'x'},... 	'coefficients',{'a','b'});
+%\end{lstlisting}
 \item Fit the function
-\begin{lstlisting}[style=usnaMatlab]
-fit_measured = fit(...
-	t',theta_dot',...
-	fittype_measured,...
-	'StartPoint',[1,1],...
-	'Lower', [0, 0]);
-\end{lstlisting}
+%\begin{lstlisting}[style=usnaMatlab]
+%fit_measured = fit(...
+%	t',theta_dot',...
+%	fittype_measured,...
+%	'StartPoint',[1,1],...
+%	'Lower', [0, 0]);
+%\end{lstlisting}
 \end{enumerate}
 \end{column}
 \end{columns}
@@ -82,10 +82,10 @@ fit_measured = fit(...
 \frametitle{Using \Matlab\ to find poles and zeros for a transfer function directly}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Format the data}
-The iddata function is required when using MATLAB’s transfer function estimation tools. The following syntax should work for your application:
-
+The \lstinline{iddata} function is required when using \Matlab's transfer function estimation tools. The following syntax should work for your application:
+\begin{lstlisting}[style=usnaMatlab]
 data_pos = iddata(...
 	uniform_theta,...	% Measured output  
 	uniform_PWM,...	% Applied input
@@ -95,12 +95,13 @@ data_pos = iddata(...
 	'InputUnit',{'unitless'},...	% Specify units of input(s)   (optional)
 	'OutputName',{'Turret Angle'},...	% Specify output name(s)      (optional)
 	'OutputUnit',{'deg'});	% Specify units for output(s) (optional)
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Estimate the transfer function}
-The tfest function can estimate a specified number of poles and zeros given fit conditions specified by tfestOptions
-
+The \lstinline{tfest} function can estimate a specified number of poles and zeros given fit conditions specified by \lstinline{tfestOptions}
+\begin{lstlisting}[style=usnaMatlab]
 % Define number of poles
 np = 2;
 % Define number of zeros
@@ -109,13 +110,14 @@ nz = 0;
 opt = tfestOptions('InitMethod','all','InitialCondition','zero');
 % Calculate plant transfer function
 H = tfest(data_pos,np,nz,opt);
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Plot the transfer function}
 As with all of your work, visualizing your results is important.
-Along with the plotted data collected from the Mbed, you can plot the fitted transfer function using the following
-
+Along with the plotted data collected from the mbed, you can plot the fitted transfer function using the following
+\begin{lstlisting}[style=usnaMatlab]
 % Find where step is initiated
 idx = find(uniform_PWM == 0, 1, 'Last');
 idx_Start = idx+1;  % Index value where step input is applied
@@ -127,22 +129,25 @@ PWM_val = mean(uniform_PWM(idx_Start:end));
     uniform_t(idx_Start:end) - uniform_t(idx_Start));
 % Plot response
 plot(t_out + uniform_t(idx_Start),theta_estimate,'g','LineWidth',2);
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Get the coefficients of the transfer function}
-The information including the poles and zeros of the transfer function are stored in an “identified transfer function” object in MATLAB. You can parse the numerator and denominator coefficients of the transfer function as follows:
-
+The information including the poles and zeros of the transfer function are stored in an ``identified transfer function'' object in \Matlab. You can parse the numerator and denominator coefficients of the transfer function as follows:
+\begin{lstlisting}[style=usnaMatlab]
 % Parse information from the identified transfer function object
 pvec = getpvec(H,'free');
 b = pvec(1);
 c(1) = pvec(2);
 c(2) = pvec(3);
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Derive the poles of the transfer function}
 Define the numerator and poles of the transfer function:
+\begin{lstlisting}[style=usnaMatlab]
 % Calculate the poles using algebraic manipulation
 syms x
 fcn = x^2 + c(1)*x + c(2);
@@ -158,23 +163,25 @@ a = p(2);
 % Displace transfer function
 fprintf('Estimated Transfer function:\n');
 fprintf('\t H(s) = %f / ( (s + %f)*(s + %f) ) \n',b,delta,a);
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
 \frametitle{Implementation notes}
-f you choose to fit the transfer function to the position data (which is recommended), be sure to include “equilibrium values” in your data
+If you choose to fit the transfer function to the position data (which is recommended), be sure to include ``equilibrium values'' in your data
 This means you want to start collecting data before you start moving your motor!
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{mbed data collection pseudocode}
+\begin{lstlisting}[style=mbedC]
 float t = 0.00;
 float dt = 0.02;
 float PWM = 0.00;
 PWMout = PWM;
 for( t = 0.00; t <= 2.0; t = t + dt ){
 	turretAngle = get turret angle;
-	printf(“%.3f,%.3f,%.3f\n”,t,PWM,turretAngle);
+	printf("%.3f,%.3f,%.3f\n",t,PWM,turretAngle);
 }
 
 float t_now = t;
@@ -182,11 +189,9 @@ PWM = 0.50;
 PWMout = PWM;
 for( t = t_now; t <= 10.0; t = t + dt ){
 	turretAngle = get turret angle;
-	printf(“%.3f,%.3f,%.3f\n”,t,PWM,turretAngle);
+	printf("%.3f,%.3f,%.3f\n",t,PWM,turretAngle);
 }
-
-
-
+\end{lstlisting}
 \end{frame}
 
 \end{document}
