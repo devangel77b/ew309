@@ -4,7 +4,7 @@
 \renewcommand\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
 
-\newcommand{\myroot}{../..}
+\newcommand{\myroot}{../../..}
 \usepackage[slides]{\myroot/course}
 \title{Sizing and selecting a motor}
 \subtitle{\usnaCourseNumber\ Guided Design Experience, \usnaCourseTerm}
@@ -12,6 +12,9 @@
 \date{\today}
 	
 \usetheme{Hopper}
+
+%\usepackage{siunitx}
+%\DeclareSIUnit{\inch}{in}
 
 \begin{document}
 \settitlebg
@@ -40,7 +43,7 @@ List all items that contribute to the motor's load. What equations are relevant?
 \begin{frame}
 \frametitle{Functional requirements: torque}
 Using the spreadsheet provided on the Google Drive, estimate the torque required to move your turret. 
-Use careful measurements (to nearest \si{\gram}, \si{0.125}{\inch}, etc)
+Use careful measurements (to nearest \si{\gram}, \SI{0.125}{\inch}, etc)
 Convert all units to SI (\si{\kilo\gram} and \si{\meter})
 \end{frame}
 
