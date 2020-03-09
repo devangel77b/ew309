@@ -1,0 +1,107 @@
+\documentclass[noanswers]{exam}
+
+\newcommand{\myroot}{../../..}
+\usepackage[hw]{\myroot/course}
+\title{Assignment \#5: Turret subsystem}
+\author{\usnaAuthorShort}
+%\date{\printdate{\hwZeroOut}}
+%\duedate{\printdate{\hwzeroDue}}
+\date{\today}
+\duedate{\printdate{3/27/2020}}
+
+\begin{document}
+\maketitle
+
+\textbf{This assignment should be included as a section in your final report in Overleaf.}  You can share the document with me, or just upload a PDF to Google Classroom / Google Drive. This assignment assumes you have completed \textbf{both} turret subsystem actuation, and measurement of turret angle. 
+
+\textbf{You only need to submit one assignment per group but each member should contribute equally to the completion of the steps.}
+
+
+\begin{questions}
+\question
+\textbf{Turret subsystem actuation, part 1: size and select a motor.}
+\begin{parts}
+\part Briefly explain the steps your group took to compute the torque and power requirements for your auto turret. You should reference your spreadsheet calculations and include the complete spreadsheet in an appendix in your report
+\part Explain your process in deciding on a different motor for your turret
+\begin{subparts}
+\subpart Explain your objectives and metrics for your decision matrix
+\subpart How did you score each alternative?
+\subpart Discuss your final choice. Do you agree with the results?
+\end{subparts}
+\end{parts}
+
+
+
+
+
+\question
+\textbf{Turret subsystem actuation, part 2a: actuate the turret}
+\begin{parts}
+\part Provide a summary of the steps you took to gather the torque, speed, and current data for your auto turret motor. If necessary, include links to useful websites or references to datasheets
+\part Include the following plots in your report with proper figure captions and references in your text to each figure\footnote{Each plot should have clearly labeled axes as well as no-load speed, stall torque, and stall current properly highlighted on the plot}:
+\begin{subparts}
+\subpart Torque vs speed for \SI{24}{\volt}
+\subpart Speed vs torque and current vs torque for \SI{24}{\volt} (on same plot)
+\subpart Speed vs torque and current vs torque for \SI{12}{\volt} (on same plot)
+\end{subparts}
+\end{parts}
+
+
+
+
+
+
+\question
+\textbf{Turret subsystem actuation, part 2b: connecting the mbed to the motor driver}
+\begin{parts}
+\part Explain in detail how you connected your mbed to the TD340 motor driver. Include a figure or two of your connections and use callouts to highlight various points on interest on your breadboard and motor driver. Schematics are highly encouraged vice breadboard photos.
+\part Discuss the reasoning for using digital speed control input vice analog.  How do you physically adjust the communication protocol on the motor driver board?
+\part Why is a pulldown resistor needed on one of your mbed connector pins?  Which pin?
+\part Discuss how you were able to spin your turret from you mbed.  Did it spin the same in both directions?  Why do you think this happens?
+\part Include your code as an appendix in your report.
+\end{parts}
+
+\clearpage
+\question
+\textbf{Measure the turret angle}
+\begin{parts}
+\part Discuss (in full sentences) the following items
+\begin{subparts}
+\subpart What type of sensor is attached to the back of your motor?
+\subpart For the sensor connected, how many wires are required to relay the information to the mbed
+\subpart For each wire required, describe the signal being conducted.  
+\end{subparts}
+\part Provide the calibration equation used to convert pulses to an angular displacement in \si{\radian}.  Why is this equation important?
+\part Include a figure or two of your breadboard and its connection to the encoder.  Highlight the important connections using callouts on your figures, specifically: the power supply, ground, and interface connections between the mbed and the encoder.
+\part Discuss the process of reading the encoder on the mbed.  What libraries did you need?  Did you have to change anything on your calibration equation once you familiarized yourself with the \lstinline{QEI} library and its associated programs.
+\end{parts}
+
+
+\question
+\textbf{Logging experimental data}
+\begin{parts}
+\part Explain your process of saving measurements from the encoder to further analysis in \Matlab. Specifically address the following
+\begin{subparts}
+\subpart What is the function of the \lstinline{Ticker} class?
+\subpart What is the function of the \lstinline{Timer} class?
+\subpart How did you use both of these classes to log and analyze your turret measurement data?
+\end{subparts}
+\part Include a plot of exactly \SI{5.0}{\second} of manual sinusoidal motion of your turret displacement (angle).  Measurements should be taken at \SI{100.0}{\hertz}.
+\part Properly label your plot axes and include an appropriate caption.
+\end{parts}
+
+
+\question
+This is a long assignment that covers many different parts.  The critical analysis summary may include some or all of the following items or other things that you learned during this process:
+\begin{parts}
+\part What did you learn about your turret?  
+\part How does it move in both a clockwise and counterclockwise direction?  Is it the same or different and why?
+\part How does the motor driver help us achieve our goal?
+\part How do you guarantee a consistent $\delta t$?  
+\part How did serial communications work for you (or not)?
+\end{parts}
+
+
+\end{questions}
+\end{document}
+

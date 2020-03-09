@@ -1,0 +1,13 @@
+Volatile declarations
+
+Notes from: https://os.mbed.com/questions/3465/Missing-volatile-keyword/
+
+If you modify a globally defined variable in an interrupt service routine (like the function 
+Ticker calls) you should declare the variable as volatile. If you change the variable in the 
+interrupt service routine (i.e. the function attached to your ticker) and then use it in main,
+the main function *may* use a cached version of the variable (meaning you will be using old 
+information).
+
+Syntax Example
+
+volatile float var = 0.0
