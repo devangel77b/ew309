@@ -52,7 +52,7 @@ Convert all units to SI (\si{\kilo\gram} and \si{\meter})
 What are the possible consequences if our estimates are too low?
 What are possible consequences if our estimates are too high?
 Torque estimate with design margin
-% A designer should aim for a 50\% torque allowance for most industrial applications \cite{Stiffler}
+% A designer should aim for a 50\% torque allowance for most industrial applications \cite{stiffler-1992-design}
 \end{frame}
 % Stiffler, Design with Microprocessors for Mechanical Engineers
 
@@ -66,7 +66,7 @@ Motor power
 \begin{equation}
 P = 
 \end{equation}
-%As a starting point, choose a motor with double the calculated power requirements \cite{Stiffler}
+%As a starting point, choose a motor with double the calculated power requirements \cite{stiffler-1992-design}
 \end{frame}
 
 
@@ -100,7 +100,7 @@ Gearbox/Gearhead
 Motor is controlled using multiple wire pole pairs
 Feedback control typically requires an encoder
 Motors are typically sold with a gearbox/gearhead
-“Brushless DC Motor Assembly” typically includes
+``Brushless DC Motor Assembly'' typically includes
 Brushless DC Motor
 Encoder
 Gearbox/Gearhead
@@ -109,20 +109,20 @@ Gearbox/Gearhead
 \begin{frame}
 \frametitle{Stepper motor}
 Motor is controlled using multiple wire pole pairs
-Motor is typically controlled open-loop using a “step” process
+Motor is typically controlled open-loop using a ``step'' process
 Motors are typically controlled using a commercial-off-the-shelf stepper motor controller rated for the specific motor.
 \end{frame}
 
 \begin{frame}
 \frametitle{(industrial) Servo motor}
-The “motor” is actually an assembly containing a DC motor, typically a gearbox, and sensor (e.g. encoder).
-Servo motors often require a “control module” to interface with a system.
+The ``motor'' is actually an assembly containing a DC motor, typically a gearbox, and sensor (e.g. encoder).
+Servo motors often require a ``control module'' to interface with a system.
 Control modules are specific to the motor assembly and typically act as a closed-loop position controller.
 \end{frame}
 
 \begin{frame}
 \frametitle{Servo}
-The “motor” is actually a closed-loop system containing a DC motor, gearbox, potentiometer, and feedback control circuit
+The ``motor'' is actually a closed-loop system containing a DC motor, gearbox, potentiometer, and feedback control circuit
 Motors respond to a common pulse coded signal to drive to desired positions
 RC servos typically have rotation constraints
 \end{frame}
@@ -133,10 +133,10 @@ Select a set of objectives (goals for your design) and then prioritize them
 Some examples might be (3) cost, (2) weight, and (1) size
 The bigger the number the higher the priority
 Establish some conceptual metrics for each objective
-For cost – you might have less than $100 (5 pts), between $100-$1000 (3 pts), or over $100 (0 pts).  For weight you might have less than 400 grams (5pts) , 400-1000 grams (3pts), over 1000 grams (1 pt). 
+For cost – you might have less than \$100 (5 pts), between \$100-\$1000 (3 pts), or over \$100 (0 pts).  For weight you might have less than \SI{400}{\gram} (5pts) , \SIrange{400}{1000}{\gram} (3pts), over \SI{1000}{\gram} (1 pt). 
 For each motor alternative, use your metrics to score each objective 
 Multiplying the objective weight (priority) by the metric score and then sum all the weighted objective scores
-‘Best’ design is that with the highest composite score
+``Best'' design is that with the highest composite score
 \end{frame}
 
 \begin{frame}
@@ -144,7 +144,7 @@ Multiplying the objective weight (priority) by the metric score and then sum all
 You must pick design alternatives that meet your auto-turret requirements
 Otherwise you would not be considering that motor
 You also must pick design alternatives that are feasible
-The motor that drives the Lone Star's geothermal drill and water well is super cool since it drills as deep as 400 feet through hard rock and volcanic formations.  But chances are it is probably overkill for your NERF turret.
+The motor that drives the Lone Star's geothermal drill and water well is super cool since it drills as deep as \SI{400}{\foot} through hard rock and volcanic formations.  But chances are it is probably overkill for your nerf turret.
 \end{frame}
 
 \begin{frame}
