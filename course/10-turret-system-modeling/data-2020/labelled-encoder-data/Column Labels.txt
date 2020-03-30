@@ -1,0 +1,4 @@
+Column 1 - PWM
+Column 2 - Time (seconds)
+Column 3 - Turret Angle (encoder counts)
+Column 4 - Turret Angle (radians)

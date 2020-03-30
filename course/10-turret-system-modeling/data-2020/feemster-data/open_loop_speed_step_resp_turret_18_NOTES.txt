@@ -1,0 +1,11 @@
+From: M. Feemster
+
+I've attached one of the experiments I did a while ago. I would use it as a comparison. I think the supply voltage was 12V. Applied an open-loop duty cycle of 50% and measured position/speed response.
+
+I changed the extension from .mat to .txt to email.
+
+I have my estimated transfer function in MATLAB workspace.
+
+Regards,
+
+Matt
