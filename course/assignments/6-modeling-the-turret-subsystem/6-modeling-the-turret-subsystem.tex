@@ -1,0 +1,79 @@
+\documentclass[noanswers]{exam}
+
+\newcommand{\myroot}{../../..}
+\usepackage[hw]{\myroot/course}
+\title{Assignment \#6: Modeling the turret subsystem}
+\author{\usnaAuthorShort}
+%\date{\printdate{\hwZeroOut}}
+%\duedate{\printdate{\hwzeroDue}}
+\date{\today}
+\duedate{\printdate{4/3/2020}}
+
+\begin{document}
+\maketitle
+
+\textbf{This assignment should be included as a section in your final report in Overleaf.}  You can share the document with me, or just upload a PDF to Google Classroom / Google Drive. This assignment assumes you have completed \textbf{both} turret subsystem actuation, and measurement of turret angle. 
+
+\textbf{You only need to submit one assignment per group but each member should contribute equally to the completion of the steps.}
+
+
+\begin{questions}
+\question
+\textbf{Modeling the turret subsystem.} Run the turret simulator to generate data or download and plot experimental data
+\begin{parts}
+\part Read through the slides ``EW309 Deriving a transfer function from a step response'' in their entirety.
+\part After reading through this document, get data from the turret. You have two options:
+\begin{subparts}
+\subpart Generate turret data using the high-fidelity turret simulator. See the slide handout for \Matlab\ usage syntax. Get at least one step response with a positive duty cycle and one step response with a negative duty cycle. 50\% may be a good starting point.
+\subpart Download the two data sets from Google Drive. These two data sets contain duty cycle (PWM), time, counts, and radian data for a positive 50\% duty cycle and a negative 50\% duty cycle.  The names of the files should be self-explanatory for which is which: \lstinline{EncoderData_PWM_50.xlsx} and \lstinline{EncoderData_PWM_neg50.xlsx}
+\end{subparts}
+\part For both sets of data, plot angular displacement (\si{\radian}) vs time. Properly label your axes and save these figures as PNG or similar files for future use in your Overleaf report.
+\end{parts}
+
+\question
+\textbf{Modeling the turret subsystem.} Derive the plant transfer function from the step response inputs.
+\begin{parts}
+\part Following the guidance provided in the slides, use \Matlab\Matlab\ or \Matlab\ installed on your computer to find the transfer function for the turret
+\begin{subparts}
+\subpart This may require you to download the System Identification Toolbox (if using \lstinline{tfest} in \Matlab) or the Optimization Toolbox (if using the \lstinline{fmincon} approach) to your laptop or desktop if you are using an installed version of \Matlab.
+\subpart If you are using \Matlab\ online this toolbox is already supported
+\end{subparts}
+\part The data you need are time ($t$), PWM (duty cycle), and $\theta$ (\si{\radian}).  This data is provided to you in two excel spreadsheets or as an output of the generated data.  You will need to figure out a way to import them into \Matlab\ if using the download approach.
+\begin{subparts}  
+\subpart One way to do this is to just cut and paste the data directly into a new variable in \Matlab
+\subpart Another way to is to investigate the \Matlab\ command \lstinline{readtable} which can read an excel file directly into \Matlab.  For example, the following lines of code declare a variable named fname and assign it an excel spreadsheet you want to read.  Then the variable data will contain all the data located in the file fname
+\begin{lstlisting}[style=usnaMatlab]
+fname = 'MyEW309Data.xlsx';
+dat = readtable(fname);
+\end{lstlisting}
+\subpart Pseudo code is provided for you in Google drive to help you get started with processing and analyzing the data.  Note you will need to add some additional lines of \Matlab\ code to make it work
+\subpart The code is structured such that you can read in and process multiple duty cycles at a time to get the plant transfer functions.
+\end{subparts}
+\part Plot the fitted step response of your transfer function against your data.  Comment on how well it matches.
+\part Derive the poles of the transfer function.
+% use the code provided in the handout???
+\end{parts}
+
+
+
+
+\question
+The following must be included in your final write-up
+\begin{parts}
+\part This section of your report (as with all sections) should have an introduction.  Provide the reader a summary of what you wanted to accomplish and the overall objectives of this portion of the project.
+\part Discussion on how you loaded the encoder datasets into \Matlab
+\part Include your plots of both sets of data
+\begin{subparts}
+\subpart Plot angular displacement (\si{\radian}) vs time
+\subpart Properly label your axes and import these figures as PNG or similar files in your Overleaf report
+\end{subparts}
+\part Discussion on how you derived the plant transfer function using the provided turret data
+\part Plots of the fitted step response of your transfer function against the data, including a discussion on the goodness of the fit.
+\part Equation showing the plant transfer function
+\part Critical analysis of this section, including any issues you ran into in processing and analyzing the data
+\part Include a statement or a few sentences on how the work was divided between each group member and how you were able to accomplish this assignment remotely with your group members.
+\end{parts}
+\end{questions}
+\end{document}
+
+

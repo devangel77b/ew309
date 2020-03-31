@@ -1,0 +1,34 @@
+\documentclass[noanswers]{exam}
+
+\newcommand{\myroot}{../../..}
+\usepackage[hw]{\myroot/course}
+\title{Assignment \#7: Dead zone identification}
+\author{\usnaAuthorShort}
+%\date{\printdate{\hwZeroOut}}
+%\duedate{\printdate{\hwzeroDue}}
+\date{\today}
+\duedate{\printdate{4/10/2020}}
+
+\begin{document}
+\maketitle
+
+In your analysis on the turret, a phenomenon known as \textbf{dead zone} is caused by static friction in our turret system.  You should be familiar with this term from your EW305 class.  If you apply a small duty cycle (somewhere less than 10\% or 0.10), the turret may not rotate.
+
+This is important to understand as you develop your position controllers so as to ensure you capture the necessary dynamics in your turret.  
+
+In order to characterize the dead zone behavior, one would slowly ramp up the duty cycle at a slow rate while measuring the corresponding angular displacement to see if we can determine when it starts moving.  Since the behavior may be different in the clockwise and counter clockwise directions, we also need to perform this test in the negative direction (slowly ramp the duty cycle in the opposite direction).
+
+\begin{questions}
+\question \textbf{Dead zone identification.} Include the figures and analysis from your auto-turret dead zone investigation
+\begin{parts}
+\part Start with a small introduction as to the nature of a deadzone. What is it, and why does it happen?
+\part Include the plots of motor velocity vs time and duty cycle vs time from your analysis.  Discuss these figures in your write up.  What do you observe?  Is the pattern the same for both directions?
+\part Include the plots of applied duty cycle vs motor velocity.  Discuss and comment on the results in your write-up
+\part Address the following questions in your report: How do you think the dead zone will affect your controller? What methods can you use to overcome this problem?  Why?
+\end{parts}
+
+\question Your write up must include the figures and answered questions from above in addition to how you split the work between your group members.  Are things still working out okay?  Did you have to modify how you are communicating or sharing data and ideas?  
+\end{questions}
+\end{document}
+
+

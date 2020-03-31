@@ -1,0 +1,114 @@
+\documentclass[addpoints,noanswers]{exam}
+
+\newcommand{\myroot}{../../..}
+\usepackage[quiz]{\myroot/course}
+
+\title{12-week Quiz}
+\author{\usnaInstructorShort}
+\date{\printdate{4/1/2020}}
+
+\begin{document}
+\maketitle
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=2in]{SpeedTorque.png}
+\end{center}
+\caption{Conceptual speed torque curve for a brushed DC motor}
+\label{fig:1}
+\end{figure}
+
+
+\begin{questions}
+\question[1]
+For the torque/speed curve in \fref{fig:1}, where is the no-load speed?
+\begin{choices}
+\choice Point A
+\choice Point B
+\choice Point C
+\end{choices}
+
+\question[1]
+For the torque/speed curve in \fref{fig:1}, where is the stall torque?
+\begin{choices}
+\CorrectChoice Point A
+\choice Point B
+\choice Point C
+\end{choices}
+
+\clearpage
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=4in]{SpeedTorque24.png}
+\end{center}
+\caption{Conceptual torque speed curve for a brushed DC motor.}
+\label{fig:2}
+\end{figure}
+
+\question[1]
+If the torque/speed curve shown in \fref{fig:2} is derived from experimental data collected at \SI{24}{\volt DC}, where would the estimated torque/speed curve lie for \SI{12}{\volt DC}?
+\begin{choices}
+\CorrectChoice Dashed green line below the \SI{24}{\volt DC} line
+\choice Dotted blue line above the \SI{24}{\volt DC} line
+\choice The line would remain where it was; no change
+\end{choices}
+
+\question[1]
+What type of motor are we using to actuate the turret (choose only one)
+\begin{choices}
+\choice An RC servo motor
+\choice A stepper motor
+\choice A servo motor
+\CorrectChoice A brushed DC motor
+\choice None of the above
+\end{choices}
+
+\question[1]
+Noting that one signal is provided from each emitter/detector \textbf{pair} in an encoder, how many emitter/detector pairs are contained in the quadrature encoder used in class (circle one)?
+\begin{choices}
+\choice One
+\CorrectChoice Two
+\choice Three
+\choice Four
+\end{choices}
+
+\question[1]
+How do we use the two signals returned by a quadrature encoder (choose one)?
+\begin{choices}
+\choice We only use one signal
+\CorrectChoice To determine motor direction
+\choice To make sure the encoder doesn't burn out
+\choice To turn the motor
+\end{choices}
+
+
+\clearpage
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3in]{TD340_Final.jpg}
+\end{center}
+\caption{WRC/TSD designed TD340 board}
+\label{fig:3}
+\end{figure}
+
+\question[1]
+How many pins on the mbed (excluding power and group connections) are used to send commands to the component shown in \fref{fig:3} (choose one).
+\begin{choices}
+\choice One
+\CorrectChoice Two
+\choice Three
+\choice Four
+\end{choices}
+
+\question[1]
+The imposed constraints for your \usnaCourseNumber\ project include (choose all that apply). Please answer this question as if this was given before spring break.
+\begin{choices}
+\CorrectChoice Use of a course provided nerf gun
+\CorrectChoice Use of a single-degree of freedom turret
+\choice Conducting background research
+\CorrectChoice Use of a USB camera for targeting
+\CorrectChoice Use of \Matlab
+\end{choices}
+\end{questions}
+\end{document}
