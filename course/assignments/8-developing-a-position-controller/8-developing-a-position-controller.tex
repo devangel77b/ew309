@@ -1,0 +1,45 @@
+\documentclass[noanswers]{exam}
+
+\newcommand{\myroot}{../../..}
+\usepackage[hw]{\myroot/course}
+\title{Assignment \#8: Developing a position controller}
+\author{\usnaAuthorShort}
+%\date{\printdate{\hwZeroOut}}
+%\duedate{\printdate{\hwzeroDue}}
+\date{\today}
+\duedate{\printdate{4/17/2020}}
+
+\begin{document}
+\maketitle
+
+This assignment should be included as a section in your final report in Overleaf.  You can share the document with me or just upload a pdf copy of your Overleaf document thus far in Google Classroom. You only need to submit one assignment per group but each member should contribute equally to the completion of the steps.  
+
+\begin{questions}
+\question \textbf{Feedback control system block diagram.} Using what you have learned in your previous WRC courses, draw the feedback control diagram for your auto-turret system.  Be sure to label each blocks as well as the inputs and outputs with appropriate units.  Some items include:
+\begin{parts}
+\part Desired angle 
+\part Error (how is the error computed?)
+\part Input to the controller
+\part Input to the plant 
+\part Output of the plant
+\end{parts}
+
+\question \textbf{Design specifications and controller design}
+\begin{parts}
+\part What design specifications did you select to develop your position controller?  Explain your reasoning for choosing these specifications
+\part What approach did you use in developing your controller and why? Discuss the steps you took to develop the values of $K_p$, $K_i$, and $K_d$ (or gain and pole and zero locations) including the equations.
+\part Did your first approach work in achieving your desired performance specifications?  If not, what did you do to tweak your design?
+\part In your report, provide the final controller design (i.e. the the transfer function $K G_c(s)$) as well as plots that show it achieves your performance specifications. You may wish to include, for example, position versus time; duty cycle versus time (including saturation); a table giving numerical values of percent overshoot, settling time, and steady state error depending on what performance specifications you choose; or other figures as you see fit.
+\end{parts} 
+
+\question The following must be included in your final write-up
+\begin{parts}
+\part This section of your report (as with all sections) should have an introduction.  Provide the reader a summary of what you wanted to accomplish and the overall objectives of this portion of the project.
+\part Block diagram of the feedback control system
+\part Critical analysis of this section, including any issues you ran into during your controller design
+\part Include a statement or a few sentences on how the work was divided between each group member and how you were able to accomplish this assignment remotely with your group members.
+\end{parts}
+\end{questions}
+\end{document}
+
+
