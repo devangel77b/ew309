@@ -1,3 +1,9 @@
 [submodule "course/3-computer-vision/WRC_MATLABCameraSupport"]
 	path = course/3-computer-vision/WRC_MATLABCameraSupport
 	url = git@github.com:kutzer/WRC_MATLABCameraSupport.git
+[submodule "project/ew309-sp2020-0111-0311-reports"]
+	path = project/Sp2020/ew309-sp2020-0111-0311-reports
+	url = git@github.com:ew309-evangelista/ew309-sp2020-0111-0311-reports.git
+[submodule "project/Sp2020/ew309-sp2020-0111-0311-integration"]
+	path = project/Sp2020/ew309-sp2020-0111-0311-integration
+	url = git@github.com:ew309-evangelista/ew309-sp2020-0111-0311-integration.git
